@@ -28,15 +28,19 @@ long int	is_intmax(char *argv)
 			pm *= -1;
 		argv ++;
 	}
-	
+	while (*argv && ft_isdigit(*argv))
+	{
+		if (ans > lm_div || (ans == lm_div && *argv - '0' > LONG_MAX % 10))
+			return (NULL);
+		ans = ans * 10 + *argv++ - '0';
+	}
+	return (0);
 }
 
 int	check_input(int argc, char **argv)
 {
 	if (argc == 1)
 		return (0);
-	if (!ft_isdigit(*argv))
-		is_error(1);
-	if (is_intmax(*argv) > INT_MAX)
+	if (!is_intmax(*argv))
 		is_error(1);
 }
