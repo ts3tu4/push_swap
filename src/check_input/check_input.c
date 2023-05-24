@@ -54,7 +54,7 @@ int	check_input(int argc, char **argv)
 	i = 0;
 	while (!*splited_argv[i++])
 	{
-		if (!is_over_intmax(*splited_argv[i++]))
+		if (is_over_intmax(*splited_argv[i++]))
 			put_error(1);
 	}
 }
