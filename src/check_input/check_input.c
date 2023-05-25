@@ -33,28 +33,30 @@ long int	is_over_intmax(char *argv)
 	while (*argv && ft_isdigit(*argv))
 	{
 		if (ans > im_div || (ans == im_div && *argv - '0' > INT_MAX % 10))
-			return (NULL);
+			return (1);
 		ans = ans * 10 + *argv++ - '0';
 	}
 	return (0);
 }
 
-int	check_input(int argc, char **argv)
+int	**check_input(int argc, char **argv)
 {
 	size_t	i;
 	size_t	j;
 	char	**splited_argv;
 
 	if (argc == 1)
-		return (0);
+		return (NULL);
 	i = 1;
 	j = 0;
-	while (!*argv[i++])
+	while (!*argv[i])
 		splited_argv[j++] = ft_split(*argv[i++], " ");
 	i = 0;
-	while (!*splited_argv[i++])
+	while (!*splited_argv[i])
 	{
-		if (is_over_intmax(*splited_argv[i++]))
+		if (is_over_intmax(*splited_argv[i++]) == 1)
 			put_error(1);
 	}
+	return (splited_argv);
 }
+//返り値がめちゃくちゃなので直す

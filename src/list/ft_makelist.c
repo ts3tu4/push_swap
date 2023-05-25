@@ -17,5 +17,13 @@ t_node	**ft_makelist(t_node **list_a)
 	list_a = malloc(sizeof(t_node *));
 	if (list_a == NULL)
 		exit(EXIT_FAILURE);
-	
+	*list_a = NULL;
+	return (list_a);
+}
+
+t_node	input_list(char **noerror_argv, t_node **list_a, t_node **list_b);
+{
+	t_node	*tmp;
+
+	tmp = ft_newlist(num)
 }
