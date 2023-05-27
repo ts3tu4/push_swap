@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/05/24 20:23:59 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/05/27 15:32:20 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,5 @@ int	**check_input(int argc, char **argv)
 		if (is_over_intmax(*splited_argv[i++]) == 1)
 			put_error(1);
 	}
-	return (splited_argv);
+	return (0);
 }
-//返り値がめちゃくちゃなので直す

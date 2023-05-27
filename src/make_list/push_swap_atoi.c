@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_makelist.c                                      :+:      :+:    :+:   */
+/*   push_swap_atoi.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:34:33 by mnanke            #+#    #+#             */
-/*   Updated: 2023/05/16 18:05:58 by mnanke           ###   ########.fr       */
+/*   Created: 2023/05/27 16:46:26 by mnanke            #+#    #+#             */
+/*   Updated: 2023/05/27 17:47:23 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+#include "../../libft/libft.h"
 
-t_node	**ft_makelist(t_node **list_a)
+long int	push_swap_atoi(char *argv)
 {
-	list_a = malloc(sizeof(t_node *));
-	if (list_a == NULL)
-		exit(EXIT_FAILURE);
-	*list_a = NULL;
-	return (list_a);
-}
+	int		pm;
+	long	ans;
 
-t_node	input_list(char **noerror_argv, t_node **list_a, t_node **list_b);
-{
-	t_node	*tmp;
-
-	tmp = ft_newlist(num)
+	pm = 1;
+	ans = 0;
+	if (*argv == '-' || *argv == "+")
+	{
+		if (*argv == "-")
+		pm *= -1;
+		argv ++;
+	}
+	while (*argv)
+		ans = ans * 10 + *argv++ - '0';
+	return (ans);
 }
