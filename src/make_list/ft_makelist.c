@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:34:33 by mnanke            #+#    #+#             */
-/*   Updated: 2023/05/27 17:47:11 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/05/30 19:17:03 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_node	**ft_makelist(t_node **list_a)
 	return (list_a);
 }
 
-t_node	input_list(char **argv, t_node **list_a, t_node **list_b)
+t_node	**input_list(char **argv, t_node **list_a, t_node **list_b)
 {
 	t_node	*tmp;
 	size_t	i;
@@ -49,9 +49,12 @@ t_node	input_list(char **argv, t_node **list_a, t_node **list_b)
 		splited_argv[j++] = ft_split(*argv[i++], " ");
 	i = 0;
 	while (!splited_argv[i])
-		noerror_argv += push_swap_atoi(*splited_argv[i++]);
-	tmp = newlist(noerror_argv);
-	if (tmp == NULL)
-		ft_free_error(1);
-	
+	{
+		noerror_argv = push_swap_atoi(*splited_argv[i++]);
+		tmp = newlist(noerror_argv);
+		if (tmp == NULL)
+			ft_free_error(1);
+		ft_lstadd_back(list_a, tmp);
+	}
+	return (list_a);
 }
