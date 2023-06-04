@@ -6,15 +6,15 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 20:44:08 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/11 14:18:45 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/04 19:29:53 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_node **lst, t_node *new)
 {
-	t_list	*tmp;
+	t_node	*tmp;
 
 	if (lst == NULL || new == NULL)
 		return ;
@@ -30,13 +30,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 //    char    s0[] = "The brown fox ";
 //    char    s1[] = "jumps over ";
 //    char    s2[] = "the lazy dog.";
-//    t_list    *ts0;
-//    t_list    *ts1;
-//    t_list    *ts2;
-//    t_list    **plst;
-//    t_list    *rdptr;
+//    t_node    *ts0;
+//    t_node    *ts1;
+//    t_node    *ts2;
+//    t_node    **plst;
+//    t_node    *rdptr;
 //
-//	plst =(t_list **)malloc(sizeof(t_list *));
+//	plst =(t_node **)malloc(sizeof(t_node *));
 //    ts0 = ft_lstnew(s0);
 //    if (ts0 == NULL)
 //    {

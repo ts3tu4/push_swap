@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:50:38 by mnanke            #+#    #+#             */
-/*   Updated: 2023/05/08 19:21:59 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/04 19:47:01 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@
 // # include <string.h>
 // # include <stdio.h>
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+typedef struct s_node{
+	struct s_node	*prev;
+	int				index;
+	size_t			num;
+	struct s_node	*next;
+}	t_node;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -61,14 +62,14 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *list);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_node	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_node **lst, t_node *new);
+int		ft_lstsize(t_node *node);
+t_node	*ft_lstlast(t_node *lst);
+void	ft_lstadd_back(t_node **lst, t_node *new);
+void	ft_lstdelone(t_node *lst, void (*del)(void*));
+t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_lstclear(t_node **lst, void (*del)(void *));
+void	ft_lstiter(t_node *lst, void (*f)(void *));
 
 #endif

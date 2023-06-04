@@ -1,8 +1,20 @@
-NAME = push_swap.a
+NAME = push_swap
 
-SRCS = 
+SRCS = main.c \
+		src/check_input/check_input.c\
+		src/error/errors.c\
+		src/make_list/ft_makelist.c\
+		src/make_list/push_swap_atoi.c
 
 CC = cc
+
+HEAD_FILE = include/push_swap.h
+
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
+PRINTF_DIR = ft_printf
+PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -11,15 +23,23 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(PRINTF_DIR)
+	cc -o $(NAME)  $(LIBFT) $(PRINTF) $^
+
+$(OBJS): %.o: %.c $(HEAD_FILE)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS
+	rm -rf $(OBJS)
+	$(MAKE) clean -C $(LIBFT_DIR)
+	$(MAKE) clean -C $(PRINTF_DIR)
 
-fclean:
+fclean: clean
 	rm -rf $(NAME)
-
-re:
-	fclean all
+	$(MAKE) fclean -C $(LIBFT_DIR)
+	$(MAKE) fclean -C $(PRINTF_DIR)
+re:fclean all
+	
 
 .PHONY: all clean fclean re

@@ -6,13 +6,13 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:01:53 by mnanke            #+#    #+#             */
-/*   Updated: 2023/05/30 18:30:03 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/04 19:29:32 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_node	*ft_lstlast(t_node *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -23,11 +23,11 @@ t_list	*ft_lstlast(t_list *lst)
 
 // int	main(void)
 // {
-// 	t_list	*lst;
-// 	t_list	*check;
-// 	t_list	*elem1;
-// 	t_list	*elem2;
-// 	t_list	*elem3;
+// 	t_node	*lst;
+// 	t_node	*check;
+// 	t_node	*elem1;
+// 	t_node	*elem2;
+// 	t_node	*elem3;
 // 	char	s1[10];
 // 	char	s2[10];
 // 	char	s3[10];

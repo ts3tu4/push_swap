@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/05/27 15:32:20 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/04 19:18:25 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ long int	is_over_intmax(char *argv)
 	im_div = INT_MAX / 10;
 	pm = 1;
 	ans = 0;
-	if (*argv == '-' || *argv == "+")
+	if (*argv == '-' || *argv == '+')
 	{
 		if (*argv == '-')
 			pm *= -1;
 		argv ++;
 	}
-	if (!ft_isdigit (argv))
+	if (!ft_isdigit (*argv))
 		return (1);
 	while (*argv && ft_isdigit(*argv))
 	{
@@ -41,21 +41,28 @@ long int	is_over_intmax(char *argv)
 
 int	**check_input(int argc, char **argv)
 {
+	char	***splited_argv;
 	size_t	i;
-	size_t	j;
-	char	**splited_argv;
 
 	if (argc == 1)
 		return (NULL);
+	splited_argv = malloc(sizeof(char ***) * argc);
+	if (splited_argv == NULL)
+		return (NULL);
 	i = 1;
-	j = 0;
-	while (!*argv[i])
-		splited_argv[j++] = ft_split(*argv[i++], " ");
+	while (argv[i] != NULL)
+	{
+		splited_argv[i - 1] = ft_split(argv[i], ' ');
+		i++;
+	}
+	splited_argv[i - 1] = NULL;
 	i = 0;
-	while (!*splited_argv[i])
+	while (splited_argv[i] != NULL)
 	{
 		if (is_over_intmax(*splited_argv[i++]) == 1)
 			put_error(1);
 	}
+	free(splited_argv);
 	return (0);
 }
+// 重複の数字省くのもいれたい

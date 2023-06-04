@@ -6,12 +6,18 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:34:33 by mnanke            #+#    #+#             */
-/*   Updated: 2023/05/30 19:17:03 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/04 19:37:21 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 #include "../../libft/libft.h"
+
+// size_t	coordinate_compression(int noerror_argv)
+// {
+	
+	
+// }
 
 t_node	*newlist(int noerror_argv)
 {
@@ -27,7 +33,6 @@ t_node	*newlist(int noerror_argv)
 	return (nodeptr);
 }
 
-
 t_node	**ft_makelist(t_node **list_a)
 {
 	list_a = malloc(sizeof(t_node *));
@@ -37,20 +42,23 @@ t_node	**ft_makelist(t_node **list_a)
 	return (list_a);
 }
 
-t_node	**input_list(char **argv, t_node **list_a, t_node **list_b)
+t_node	**input_list(char **argv, t_node **list_a)
 {
 	t_node	*tmp;
 	size_t	i;
 	size_t	j;
-	char	**splited_argv;
+	char	***splited_argv;
 	int		noerror_argv;
 
-	while (!*argv[i])
-		splited_argv[j++] = ft_split(*argv[i++], " ");
 	i = 0;
+	j = 0;
+	splited_argv = NULL;
+	while (!argv[i])
+		splited_argv[j++] = ft_split(argv[i++], ' ');
 	while (!splited_argv[i])
 	{
 		noerror_argv = push_swap_atoi(*splited_argv[i++]);
+		// j = coordinate_compression(noerror_argv);
 		tmp = newlist(noerror_argv);
 		if (tmp == NULL)
 			ft_free_error(1);

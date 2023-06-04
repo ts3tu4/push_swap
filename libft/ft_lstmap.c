@@ -6,16 +6,16 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:35:46 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/22 14:30:30 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/04 19:30:03 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*newnode;
-	t_list	*newlst;
+	t_node	*newnode;
+	t_node	*newlst;
 
 	if ((*f) == NULL || (*del) == NULL)
 		return (NULL);

@@ -6,15 +6,15 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:36:53 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/11 17:51:21 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/04 19:29:43 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_node **lst, void (*del)(void *))
 {
-	t_list	*node_p;
+	t_node	*node_p;
 
 	if (!lst || !*lst || !del)
 		return ;
