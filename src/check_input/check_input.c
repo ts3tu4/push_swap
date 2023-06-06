@@ -6,12 +6,12 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/04 19:18:25 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/06 17:44:17 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
-#include "../../libft/libft.h"
+#include "push_swap.h"
+#include "libft.h"
 
 long int	is_over_intmax(char *argv)
 {
@@ -32,11 +32,16 @@ long int	is_over_intmax(char *argv)
 		return (1);
 	while (*argv && ft_isdigit(*argv))
 	{
-		if (ans > im_div || (ans == im_div && *argv - '0' > INT_MAX % 10))
-			return (1);
 		ans = ans * 10 + *argv++ - '0';
+		if (ans * pm > INT_MAX || ans * pm < INT_MIN)
+			return (1);
 	}
 	return (0);
+}
+
+int	is_overlap(char *argv)
+{
+	
 }
 
 int	**check_input(int argc, char **argv)
@@ -62,7 +67,8 @@ int	**check_input(int argc, char **argv)
 		if (is_over_intmax(*splited_argv[i++]) == 1)
 			put_error(1);
 	}
+	if (is_overlap(*splited_argv[i++]) == 1)
+		put_error(1);
 	free(splited_argv);
 	return (0);
 }
-// 重複の数字省くのもいれたい

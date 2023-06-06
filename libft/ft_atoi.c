@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:28:34 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/19 15:30:55 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/06 17:28:47 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,72 +56,72 @@ int	ft_atoi(const char *str)
 // int	main(void)
 // {
 // 	char	str[1000];
-
-// 	strcpy(str, "123+100");
-// 	printf("atoi1:%d\n", atoi(str));
-// 	printf("test1:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "a1");
-// 	printf("atoi2:%d\n", atoi(str));
-// 	printf("test2:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "--1");
-// 	printf("atoi3:%d\n", atoi(str));
-// 	printf("test3:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "++1");
-// 	printf("atoi4:%d\n", atoi(str));
-// 	printf("test4:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "+1");
-// 	printf("atoi5:%d\n", atoi(str));
-// 	printf("test5:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "-1");
-// 	printf("atoi6:%d\n", atoi(str));
-// 	printf("test6:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "0");
-// 	printf("atoi7:%d\n", atoi(str));
-// 	printf("test7:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "+42lyon");
-// 	printf("atoi8:%d\n", atoi(str));
-// 	printf("test8:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "+101");
-// 	printf("atoi9:%d\n", atoi(str));
-// 	printf("test9:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "-9223372036854775808");
-// 	printf("atoi10:%d\n", atoi(str));
-// 	printf("test10:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "18446744073709551614");
-// 	printf("atoi11:%d\n", atoi(str));
-// 	printf("test11:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "18446744073709551614");
-// 	printf("atoi12:%d\n", atoi(str));
-// 	printf("test12:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "4294967296");
-// 	printf("atoi13:%d\n", atoi(str));
-// 	printf("test13:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "4294967294");
-// 	printf("atoi14:%d\n", atoi(str));
-// 	printf("test14:%d\n", ft_atoi(str));
-// 	printf("---------------------\n");
-// 	strcpy(str, "9223372036854775806");
+// 
+	// strcpy(str, "123+100");
+	// printf("atoi1:%d\n", atoi(str));
+	// printf("test1:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "a1");
+	// printf("atoi2:%d\n", atoi(str));
+	// printf("test2:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "--1");
+	// printf("atoi3:%d\n", atoi(str));
+	// printf("test3:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "++1");
+	// printf("atoi4:%d\n", atoi(str));
+	// printf("test4:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "+1");
+	// printf("atoi5:%d\n", atoi(str));
+	// printf("test5:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "-1");
+	// printf("atoi6:%d\n", atoi(str));
+	// printf("test6:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "0");
+	// printf("atoi7:%d\n", atoi(str));
+	// printf("test7:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "+42lyon");
+	// printf("atoi8:%d\n", atoi(str));
+	// printf("test8:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "+101");
+	// printf("atoi9:%d\n", atoi(str));
+	// printf("test9:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "-9223372036854775808");
+	// printf("atoi10:%d\n", atoi(str));
+	// printf("test10:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "18446744073709551614");
+	// printf("atoi11:%d\n", atoi(str));
+	// printf("test11:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "18446744073709551614");
+	// printf("atoi12:%d\n", atoi(str));
+	// printf("test12:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "4294967296");
+	// printf("atoi13:%d\n", atoi(str));
+	// printf("test13:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+	// strcpy(str, "4294967294");
+	// printf("atoi14:%d\n", atoi(str));
+	// printf("test14:%d\n", ft_atoi(str));
+	// printf("---------------------\n");
+// 	strcpy(str, "9223372036854775807");
 // 	printf("atoi15:%d\n", atoi(str));
 // 	printf("test15:%d\n", ft_atoi(str));
 // 	printf("---------------------\n");
-// 	strcpy(str, "-9223372036854775807");
+// 	strcpy(str, "9223372036854775808");
 // 	printf("atoi16:%d\n", atoi(str));
 // 	printf("test16:%d\n", ft_atoi(str));
 // 	printf("---------------------\n");
-// 	strcpy(str, "9223372036854775808");
+// 	strcpy(str, "-9223372036854775808");
 // 	printf("atoi17:%d\n", atoi(str));
 // 	printf("test17:%d\n", ft_atoi(str));
 // 	printf("---------------------\n");

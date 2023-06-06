@@ -6,12 +6,14 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:46:26 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/04 19:38:06 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/06 17:35:10 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
-#include "../../libft/libft.h"
+// #include "../../include/push_swap.h"
+// #include "../../libft/libft.h"
+#include "push_swap.h"
+#include "libft.h"
 
 long int	push_swap_atoi(char *argv)
 {

@@ -6,11 +6,12 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:32:57 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/04 19:36:20 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/06 17:36:42 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "push_swap.h"
+#include "libft.h"
 
 int	main(int argc, char **argv)
 {
