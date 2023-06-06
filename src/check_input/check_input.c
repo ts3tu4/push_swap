@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/06 17:44:17 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/06 19:43:08 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,20 @@ int	is_overlap(char *argv)
 	
 }
 
+int	double_ptr(char ***splited_argv)
+{
+	char	**tmp;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (!**splited_argv[i])
+	{
+		
+	}
+	
+}
+
 int	**check_input(int argc, char **argv)
 {
 	char	***splited_argv;
@@ -56,10 +70,7 @@ int	**check_input(int argc, char **argv)
 		return (NULL);
 	i = 1;
 	while (argv[i] != NULL)
-	{
-		splited_argv[i - 1] = ft_split(argv[i], ' ');
-		i++;
-	}
+		splited_argv[i - 1] = ft_split(argv[i++], ' ');
 	splited_argv[i - 1] = NULL;
 	i = 0;
 	while (splited_argv[i] != NULL)
@@ -67,8 +78,7 @@ int	**check_input(int argc, char **argv)
 		if (is_over_intmax(*splited_argv[i++]) == 1)
 			put_error(1);
 	}
-	if (is_overlap(*splited_argv[i++]) == 1)
-		put_error(1);
+	double_ptr(splited_argv);
 	free(splited_argv);
 	return (0);
 }
