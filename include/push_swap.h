@@ -39,4 +39,5 @@ t_node		**input_list(char **argv, t_node **list_a);
 long int	push_swap_atoi(char *argv);
 t_node		*ft_lstlast(t_node *lst);
 void		ft_lstadd_back(t_node **lst, t_node *new);
+int			*change_int_ptr(char ***splited_argv, int argc);
 #endif

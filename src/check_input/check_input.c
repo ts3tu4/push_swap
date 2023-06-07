@@ -17,9 +17,7 @@ long int	is_over_intmax(char *argv)
 {
 	int		pm;
 	long	ans;
-	long	im_div;
 
-	im_div = INT_MAX / 10;
 	pm = 1;
 	ans = 0;
 	if (*argv == '-' || *argv == '+')
@@ -39,23 +37,35 @@ long int	is_over_intmax(char *argv)
 	return (0);
 }
 
-int	is_overlap(char *argv)
-{
+// int	is_overlap(char *argv)
+// {
 	
-}
+// }
 
-int	double_ptr(char ***splited_argv)
+int	*change_int_ptr(char ***splited_argv, int argc)
 {
-	char	**tmp;
+	int		*tmp;
 	size_t	i;
 	size_t	j;
+	size_t	k;
 
+	tmp = malloc(sizeof(int) * argc);
 	i = 0;
-	while (!**splited_argv[i])
+	j = 0;
+	k = 0;
+	while (!**splited_argv[k])
 	{
-		
+		while (!*splited_argv[j])
+		{
+			tmp[i] = push_swap_atoi(*splited_argv[j]);
+			printf("tmp%ls\n", tmp);
+			i++;
+			j++;
+		}
+		j = 0;
+		k++;
 	}
-	
+	return (tmp);
 }
 
 int	**check_input(int argc, char **argv)
@@ -70,15 +80,19 @@ int	**check_input(int argc, char **argv)
 		return (NULL);
 	i = 1;
 	while (argv[i] != NULL)
-		splited_argv[i - 1] = ft_split(argv[i++], ' ');
+	{
+		splited_argv[i - 1] = ft_split(argv[i], ' ');
+		i++;
+	}
 	splited_argv[i - 1] = NULL;
 	i = 0;
 	while (splited_argv[i] != NULL)
 	{
+		printf("split_argv %s\n", *splited_argv[i]);
 		if (is_over_intmax(*splited_argv[i++]) == 1)
 			put_error(1);
 	}
-	double_ptr(splited_argv);
+	change_int_ptr(splited_argv, argc);
 	free(splited_argv);
 	return (0);
 }
