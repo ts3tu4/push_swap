@@ -62,7 +62,7 @@ size_t	count_numbers_in_args(int argc, char **argv)
 	return (num);
 }	
 
-char	**split_all_args(int argc, char **argv)
+char	**split_all_args(int argc, char **argv) //ここ分ける
 {
 	char	**splited_argv;
 	int		i;
