@@ -13,6 +13,19 @@
 #include "push_swap.h"
 #include "libft.h"
 
+void	all_free(char **c)
+{
+	size_t	i;
+
+	i = 0;
+	while (c[i] != NULL)
+	{
+		free(c[i]);
+		i++;
+	}
+	free(c);
+}
+
 int	main(int argc, char **argv)
 {
 	t_node	**list_a;

@@ -37,62 +37,77 @@ long int	is_over_intmax(char *argv)
 	return (0);
 }
 
-// int	is_overlap(char *argv)
-// {
-	
-// }
-
-int	*change_int_ptr(char ***splited_argv, int argc)
+size_t	count_numbers_in_args(int argc, char **argv)
 {
-	int		*tmp;
-	size_t	i;
-	size_t	j;
-	size_t	k;
+	size_t	num;
+	int		i;
+	int		j;
+	char	**splited_arg;
 
-	tmp = malloc(sizeof(int) * argc);
 	i = 0;
-	j = 0;
-	k = 0;
-	while (!**splited_argv[k])
+	num = 0;
+	while (i < argc)
 	{
-		while (!*splited_argv[j])
+		splited_arg = ft_split(argv[i], ' ');
+		j = 0;
+		while (splited_arg[j] != NULL)
 		{
-			tmp[i] = push_swap_atoi(*splited_argv[j]);
-			printf("tmp%ls\n", tmp);
-			i++;
+			num++;
 			j++;
 		}
 		j = 0;
-		k++;
+		all_free(splited_arg);
+		i++;
 	}
-	return (tmp);
+	return (num);
+}	
+
+char	**split_all_args(int argc, char **argv)
+{
+	char	**splited_argv;
+	int		i;
+	int		j;
+	size_t	num;
+	char	**tmp;
+
+	num = count_numbers_in_args(argc, argv);
+	splited_argv = malloc((num + 1) * sizeof(char *));
+	if (splited_argv == NULL)
+		return (NULL);
+	i = 1;
+	num = 0;
+	while (i < argc)
+	{
+		tmp = ft_split(argv[i], ' ');
+		j = 0;
+		while (tmp[j] != NULL)
+		{
+			splited_argv[num] = tmp[j];
+			j++;
+			num++;
+		}
+		free(tmp);
+		i++;
+	}
+	splited_argv[num] = NULL;
+	return (splited_argv);
 }
 
 int	**check_input(int argc, char **argv)
 {
-	char	***splited_argv;
 	size_t	i;
+	char	**splited_argv;
 
 	if (argc == 1)
 		return (NULL);
-	splited_argv = malloc(sizeof(char ***) * argc);
-	if (splited_argv == NULL)
-		return (NULL);
-	i = 1;
-	while (argv[i] != NULL)
-	{
-		splited_argv[i - 1] = ft_split(argv[i], ' ');
-		i++;
-	}
-	splited_argv[i - 1] = NULL;
 	i = 0;
+	splited_argv = split_all_args(argc, argv);
 	while (splited_argv[i] != NULL)
 	{
-		printf("split_argv %s\n", *splited_argv[i]);
-		if (is_over_intmax(*splited_argv[i++]) == 1)
+		printf("splited_argv%s\n", splited_argv[i]);
+		if (is_over_intmax(splited_argv[i]) == 1)
 			put_error(1);
+		i++;
 	}
-	change_int_ptr(splited_argv, argc);
-	free(splited_argv);
 	return (0);
 }

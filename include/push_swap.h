@@ -29,9 +29,12 @@ typedef struct s_node{
 // check input
 long int	is_over_intmax(char *argv);
 int			**check_input(int argc, char **argv);
+size_t		count_numbers_in_args(int argc, char **argv);
+char		**split_all_args(int argc, char **argv);
 // error
 void		put_error(int a);
 void		ft_free_error(int a);
+void		all_free(char **c);
 // make list
 t_node		*newlist(int noerror_argv);
 t_node		**ft_makelist(t_node **list_a);
