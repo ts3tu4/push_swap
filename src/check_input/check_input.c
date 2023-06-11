@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/06 19:43:08 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/11 19:07:48 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ long int	is_over_intmax(char *argv)
 	return (0);
 }
 
-size_t	count_numbers_in_args(int argc, char **argv)
+char	**allocate_for_args(int argc, char **argv)
 {
 	size_t	num;
 	int		i;
 	int		j;
 	char	**splited_arg;
+	char	**allcate_aplited_arg;
 
 	i = 0;
 	num = 0;
@@ -59,10 +60,13 @@ size_t	count_numbers_in_args(int argc, char **argv)
 		all_free(splited_arg);
 		i++;
 	}
-	return (num);
+	allcate_aplited_arg = malloc(sizeof(char *) * (num + 1));
+	if (allcate_aplited_arg == NULL)
+		exit (EXIT_FAILURE);
+	return (allcate_aplited_arg);
 }	
 
-char	**split_all_args(int argc, char **argv) //ここ分ける
+char	**split_all_args(int argc, char **argv)
 {
 	char	**splited_argv;
 	int		i;
@@ -70,10 +74,7 @@ char	**split_all_args(int argc, char **argv) //ここ分ける
 	size_t	num;
 	char	**tmp;
 
-	num = count_numbers_in_args(argc, argv);
-	splited_argv = malloc((num + 1) * sizeof(char *));
-	if (splited_argv == NULL)
-		return (NULL);
+	splited_argv = allocate_for_args(argc, argv);
 	i = 1;
 	num = 0;
 	while (i < argc)
@@ -82,7 +83,8 @@ char	**split_all_args(int argc, char **argv) //ここ分ける
 		j = 0;
 		while (tmp[j] != NULL)
 		{
-			splited_argv[num] = tmp[j];
+			splited_argv[num] = ft_strdup(tmp[j]);
+			free(tmp[j]);
 			j++;
 			num++;
 		}
@@ -93,21 +95,23 @@ char	**split_all_args(int argc, char **argv) //ここ分ける
 	return (splited_argv);
 }
 
-int	**check_input(int argc, char **argv)
+char	**check_input_return_cc(int argc, char **argv)
 {
-	size_t	i;
+	size_t	len;
 	char	**splited_argv;
+	char	**cc;
 
 	if (argc == 1)
 		return (NULL);
-	i = 0;
+	len = 0;
 	splited_argv = split_all_args(argc, argv);
-	while (splited_argv[i] != NULL)
+	while (splited_argv[len] != NULL)
 	{
-		printf("splited_argv%s\n", splited_argv[i]);
-		if (is_over_intmax(splited_argv[i]) == 1)
+		if (is_over_intmax(splited_argv[len]) == 1)
 			put_error(1);
-		i++;
+		len++;
 	}
-	return (0);
+	cc = coordinate_compress(splited_argv, len);
+	all_free(splited_argv);
+	return (cc);
 }

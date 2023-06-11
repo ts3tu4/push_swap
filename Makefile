@@ -2,7 +2,9 @@ NAME = push_swap
 
 SRCS = main.c \
 		src/check_input/check_input.c\
-		src/error/errors.c\
+		src/check_input/coordinate_compression.c\
+		src/error_free/ft_free.c\
+		src/error_free/ft_error.c\
 		src/make_list/ft_makelist.c\
 		src/make_list/push_swap_atoi.c\
 		src/make_list/makelist_utils.c

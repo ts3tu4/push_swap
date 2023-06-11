@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:11:23 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/06 15:33:10 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/11 19:29:52 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,20 @@ typedef struct s_node{
 
 // check input
 long int	is_over_intmax(char *argv);
-int			**check_input(int argc, char **argv);
-size_t		count_numbers_in_args(int argc, char **argv);
+char		**check_input_return_cc(int argc, char **argv);
+char		**allocate_for_args(int argc, char **argv);
 char		**split_all_args(int argc, char **argv);
-// error
+int			check_duplicate(char **splited_argv);
+char		**coordinate_compress(char **splited_argv, size_t	len);
+int			ft_strcmp(const char *s1, const char *s2);
+// error/free
 void		put_error(int a);
-void		ft_free_error(int a);
+void		ft_int_free(int a);
 void		all_free(char **c);
+void		free_list(t_node **list);
 // make list
 t_node		*newlist(int noerror_argv);
-t_node		**ft_makelist(t_node **list_a);
+t_node		**ft_makelist(void);
 t_node		**input_list(char **argv, t_node **list_a);
 long int	push_swap_atoi(char *argv);
 t_node		*ft_lstlast(t_node *lst);
