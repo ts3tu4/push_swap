@@ -15,7 +15,7 @@
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	while (s2 != '\0' || s1 != '\0')
+	while (*s2 != '\0' || *s1 != '\0')
 	{
 		if (*s1 != *s2)
 			return ((unsigned char)*s1 - (unsigned char)*s2);
@@ -45,27 +45,26 @@ int	check_duplicate(char **splited_argv)
 	return (0);
 }
 
-char	**coordinate_compress(char **splited_argv, size_t	len)
+int	*coordinate_compress(char **splited_argv, size_t	len)
 {
 	size_t	i;
 	size_t	j;
 	char	*tmp;
-	int		new_coordinate;
+	char	*splited_arg_box;
+	int		*new_coordinate;
 
-	// new_coordinate = malloc(sizeof(int) * len);
-	// if (new_coordinate == NULL)
-	// 	exit(EXIT_FAILURE);//リークすると思われ というか座標圧縮できてない
+	splited_arg_box = splited_argv;
 	i = 0;
 	while (i < len - 1)
 	{
 		j = 0;
 		while (j < len - i - 1)
 		{
-			if (ft_strcmp(splited_argv[j], splited_argv[j + 1]) > 0)
+			if (ft_strcmp(splited_arg_box[j], splited_arg_box[j + 1]) > 0)
 			{
-				tmp = splited_argv[j];
-				splited_argv[j] = splited_argv[j + 1];
-				splited_argv[j + 1] = tmp;
+				tmp = splited_arg_box[j];
+				splited_arg_box[j] = splited_arg_box[j + 1];
+				splited_arg_box[j + 1] = tmp;
 			}
 			j++;
 		}
@@ -74,10 +73,13 @@ char	**coordinate_compress(char **splited_argv, size_t	len)
 	i = 0;
 	while (i < len)
 	{
-		new_coordinate = i + 1;
-		free(splited_argv[i]);
-		splited_argv[i] = ft_itoa(new_coordinate);
-		printf("cc[%lu]:%s\n", i, splited_argv[i]);
+		if (i == 0 || ft_strcmp(splited_argv[i], splited_argv[i - 1]) != 0)/dame
+		{
+			new_coordinate = i + 1;
+			free(splited_argv[i]);
+			splited_argv[i] = ft_itoa(new_coordinate);
+			printf("splited_argv[%lu]:%s\n", i, splited_argv[i]);
+		}
 		i++;
 	}
 	return (splited_argv);
