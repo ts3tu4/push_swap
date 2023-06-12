@@ -73,7 +73,7 @@ int	*coordinate_compress(char **splited_argv, size_t	len)
 	i = 0;
 	while (i < len)
 	{
-		if (i == 0 || ft_strcmp(splited_argv[i], splited_argv[i - 1]) != 0)/dame
+		if (i == 0 || ft_strcmp(splited_argv[i], splited_argv[i - 1]) != 0)
 		{
 			new_coordinate = i + 1;
 			free(splited_argv[i]);
