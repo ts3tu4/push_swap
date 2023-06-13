@@ -1,57 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   coordinate_compression_utils.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 00:01:11 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/13 22:03:35 by mnanke           ###   ########.fr       */
+/*   Created: 2023/06/13 20:54:15 by mnanke            #+#    #+#             */
+/*   Updated: 2023/06/13 20:58:08 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-void	ft_int_free(int a)
-{
-	(void)a;
-}
-
-void	all_free(char **c)
+char	**duplicate_array(char **orig_array, size_t len)
 {
 	size_t	i;
+	size_t	j;
+	char	**new_array;
 
-	i = 0;
-	while (c[i] != NULL)
-	{
-		free(c[i]);
-		i++;
-	}
-	free(c);
-}
-
-void	len_free(char **c, size_t	len)
-{
-	size_t	i;
-
+	new_array = malloc(sizeof(char *) * len);
+	if (new_array == NULL)
+		exit(EXIT_FAILURE);
 	i = 0;
 	while (i < len)
 	{
-		free(c[i]);
+		new_array[i] = ft_strdup(orig_array[i]);
+		if (new_array[i] == NULL)
+		{
+			j = 0;
+			while (j < i)
+			{
+				free(new_array[j]);
+				j++;
+			}
+			free(new_array);
+			exit(EXIT_FAILURE);
+		}
 		i++;
 	}
-	free(c);
+	return (new_array);
 }
 
-void	free_list(t_node **list)
+void	swap_str(char	**str1, char **str2)
 {
-	t_node	*tmp;
+	char	*tmp;
 
-	while (*list != NULL)
-	{
-		tmp = (*list)->next;
-		free(*list);
-		*list = tmp;
-	}
+	tmp = *str1;
+	*str1 = *str2;
+	*str2 = tmp;
 }

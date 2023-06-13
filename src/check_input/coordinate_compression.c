@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:09:47 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/11 19:38:10 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/13 22:06:37 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,42 +45,51 @@ int	check_duplicate(char **splited_argv)
 	return (0);
 }
 
-int	*coordinate_compress(char **splited_argv, size_t	len)
+void	bubble_sort(char **splited_argv, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	char	*tmp;
-	char	*splited_arg_box;
-	int		*new_coordinate;
 
-	splited_arg_box = splited_argv;
 	i = 0;
 	while (i < len - 1)
 	{
 		j = 0;
 		while (j < len - i - 1)
 		{
-			if (ft_strcmp(splited_arg_box[j], splited_arg_box[j + 1]) > 0)
-			{
-				tmp = splited_arg_box[j];
-				splited_arg_box[j] = splited_arg_box[j + 1];
-				splited_arg_box[j + 1] = tmp;
-			}
+			if (ft_strcmp(splited_argv[j], splited_argv[j + 1]) > 0)
+				swap_str(&splited_argv[j], &splited_argv[j + 1]);
 			j++;
 		}
 		i++;
 	}
+}
+
+int	*coordinate_compress(char **splited_argv, size_t	len)
+{
+	size_t	i;
+	size_t	j;
+	int		*new_coordinate;
+	char	**sorted_arg;
+
+	check_duplicate(splited_argv);
+	new_coordinate = malloc(sizeof(int) * (len));
+	if (new_coordinate == NULL)
+		exit(EXIT_FAILURE);
+	sorted_arg = duplicate_array(splited_argv, len);
+	bubble_sort(sorted_arg, len);
 	i = 0;
 	while (i < len)
 	{
-		if (i == 0 || ft_strcmp(splited_argv[i], splited_argv[i - 1]) != 0)
+		j = 0;
+		while (splited_argv[j])
 		{
-			new_coordinate = i + 1;
-			free(splited_argv[i]);
-			splited_argv[i] = ft_itoa(new_coordinate);
-			printf("splited_argv[%lu]:%s\n", i, splited_argv[i]);
+			if ((ft_strcmp(sorted_arg[i], splited_argv[j])) == 0)
+				new_coordinate[j] = i;
+			j++;
 		}
 		i++;
 	}
-	return (splited_argv);
+	len_free(splited_argv, len);
+	len_free(sorted_arg, len);
+	return (new_coordinate);
 }

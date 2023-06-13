@@ -7,6 +7,7 @@ SRCS = main.c \
 		src/error_free/ft_error.c\
 		src/make_list/ft_makelist.c\
 		src/make_list/push_swap_atoi.c\
+		src/check_input/coordinate_compression_utils.c\
 		src/make_list/makelist_utils.c
 
 CC = cc

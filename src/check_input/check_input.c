@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/11 19:07:48 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/13 17:49:10 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,11 @@ char	**split_all_args(int argc, char **argv)
 	return (splited_argv);
 }
 
-char	**check_input_return_cc(int argc, char **argv)
+int	*check_input_return_cc(int argc, char **argv)
 {
 	size_t	len;
 	char	**splited_argv;
-	char	**cc;
+	int		*cc;
 
 	if (argc == 1)
 		return (NULL);
