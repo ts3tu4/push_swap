@@ -6,16 +6,17 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:01:11 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/13 22:03:35 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/14 13:49:37 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-void	ft_int_free(int a)
+void	ft_int_free(int *a)
 {
-	(void)a;
+	if (a != NULL)
+		free(a);
 }
 
 void	all_free(char **c)
@@ -24,19 +25,6 @@ void	all_free(char **c)
 
 	i = 0;
 	while (c[i] != NULL)
-	{
-		free(c[i]);
-		i++;
-	}
-	free(c);
-}
-
-void	len_free(char **c, size_t	len)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < len)
 	{
 		free(c[i]);
 		i++;

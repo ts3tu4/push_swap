@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:34:33 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/11 19:33:34 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/14 13:36:35 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_node	**input_list(char **argv, t_node **list_a)
 			noerror_argv = push_swap_atoi(splited_argv[j]);
 			tmp = newlist(noerror_argv);
 			if (tmp == NULL)
-				ft_int_free(1);
+				free(tmp);
 			ft_lstadd_back(list_a, tmp);
 			j++;
 		}

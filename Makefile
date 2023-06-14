@@ -24,6 +24,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 
+.SILENT:
+
 all: $(NAME)
 
 $(NAME): $(OBJS)

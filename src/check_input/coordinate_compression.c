@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:09:47 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/13 22:06:37 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/14 13:47:33 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,5 @@ int	*coordinate_compress(char **splited_argv, size_t	len)
 		}
 		i++;
 	}
-	len_free(splited_argv, len);
-	len_free(sorted_arg, len);
 	return (new_coordinate);
 }

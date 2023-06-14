@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:11:23 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/13 22:04:14 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/14 13:47:51 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,9 @@ char		**duplicate_array(char **orig_array, size_t len);
 void		swap_str(char	**str1, char **str2);
 // error/free
 void		put_error(int a);
-void		ft_int_free(int a);
+void		ft_int_free(int *a);
 void		all_free(char **c);
 void		free_list(t_node **list);
-void		len_free(char **c, size_t	len);
 // make list
 t_node		*newlist(int noerror_argv);
 t_node		**ft_makelist(void);
