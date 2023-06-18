@@ -26,23 +26,23 @@ OBJS = $(SRCS:.c=.o)
 
 .SILENT:
 
-#debug
-NAME_DEBUG=push_swap_debug
-OBJSDIR_DEBUG=objs_debug/
-CFLAGS_DEBUG = -g -Wall -Werror -Wextra -I includes/
-OBJS_DEBUG = $(SRCS:%.c=$(OBJSDIR_DEBUG)%.o)
-LIBFTNAME_DEBUG = $(LIBFT_DIR)/libft_debug.a
-PRINTF_DEBUG = $(PRINTF_DIR)/libftprintf_debug.a
-$(LIBFTNAME_DEBUG):
-	make -C $(LIBFT_DIR) debug
-$(PRINTF_DEBUG):
-	make -C $(PRINTF_DIR) debug
-debug: $(NAME_DEBUG)
-$(NAME_DEBUG): $(OBJS_DEBUG) $(LIBFTNAME_DEBUG) $(PRINTF_DEBUG)
-	$(CC) $(CFLAGS_DEBUG) $^ -o $@ $(INCLUDES)
-$(OBJSDIR_DEBUG)%.o: $(SRCSDIR)%.c
-	@mkdir -p $(@D)
-	$(CC) $(CFLAGS_DEBUG) -c $< -o $@ $(INCLUDES)
+# #debug
+# NAME_DEBUG=push_swap_debug
+# OBJSDIR_DEBUG=objs_debug/
+# CFLAGS_DEBUG = -g -Wall -Werror -Wextra -I includes/
+# OBJS_DEBUG = $(SRCS:%.c=$(OBJSDIR_DEBUG)%.o)
+# LIBFTNAME_DEBUG = $(LIBFT_DIR)/libft_debug.a
+# PRINTF_DEBUG = $(PRINTF_DIR)/libftprintf_debug.a
+# $(LIBFTNAME_DEBUG):
+# 	make -C $(LIBFT_DIR) debug
+# $(PRINTF_DEBUG):
+# 	make -C $(PRINTF_DIR) debug
+# debug: $(NAME_DEBUG)
+# $(NAME_DEBUG): $(OBJS_DEBUG) $(LIBFTNAME_DEBUG) $(PRINTF_DEBUG)
+# 	$(CC) $(CFLAGS_DEBUG) $^ -o $@ $(INCLUDES)
+# $(OBJSDIR_DEBUG)%.o: $(SRCSDIR)%.c
+# 	@mkdir -p $(@D)
+# 	$(CC) $(CFLAGS_DEBUG) -c $< -o $@ $(INCLUDES)
 
 all: $(NAME)
 
