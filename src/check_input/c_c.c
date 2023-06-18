@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   coordinate_compression.c                           :+:      :+:    :+:   */
+/*   c_c.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:09:47 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/14 13:47:33 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/18 16:56:48 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,7 @@ int	*coordinate_compress(char **splited_argv, size_t	len)
 		}
 		i++;
 	}
+	all_free(sorted_arg);
+	all_free(splited_argv);
 	return (new_coordinate);
 }

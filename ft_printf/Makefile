@@ -14,6 +14,15 @@ CFLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 
+# #debug
+# NAME_DEBUG = libftprintf_debug.a
+# debug: $(NAME_DEBUG)
+# $(NAME_DEBUG): $(OBJS)
+# 	ar rc $@ $^
+# 	ranlib $@
+# $(OBJS): %.o: %.c
+# 	gcc -Wall -Wextra -Werror -g -c $< -o $@
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -24,7 +33,7 @@ clean:
 
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(NAME_DEBUG)
 
 re: fclean all
 

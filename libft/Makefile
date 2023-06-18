@@ -6,7 +6,7 @@
 #    By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 16:11:44 by mnanke            #+#    #+#              #
-#    Updated: 2023/02/12 15:31:17 by mnanke           ###   ########.fr        #
+#    Updated: 2023/06/18 16:59:46 by mnanke           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,16 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
+# #debug
+# NAME_DEBUG = libft_debug.a
+# debug: $(NAME_DEBUG)
+# $(NAME_DEBUG): $(OBJS)
+# 	ar rc $@ $^
+# 	ranlib $@
+# $(OBJS): %.o: %.c
+# 	gcc -Wall -Wextra -Werror -g -c $< -o $@
+
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -82,7 +92,7 @@ clean:
 	rm -rf $(OBJS) $(BONUS_OBJS)
 	
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(NAME_DEBUG)
 	
 re: fclean all
 

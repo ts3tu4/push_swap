@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   coordinate_compression_utils.c                     :+:      :+:    :+:   */
+/*   c_c_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 20:54:15 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/14 13:34:29 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/18 16:56:19 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**duplicate_array(char **orig_array, size_t len)
 	size_t	j;
 	char	**new_array;
 
-	new_array = malloc(sizeof(char *) * len);
+	new_array = malloc(sizeof(char *) * len + 1);
 	if (new_array == NULL)
 		exit(EXIT_FAILURE);
 	i = 0;
@@ -39,6 +39,7 @@ char	**duplicate_array(char **orig_array, size_t len)
 		}
 		i++;
 	}
+	new_array[i] = NULL;
 	return (new_array);
 }
 

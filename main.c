@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:32:57 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/14 12:56:21 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/18 16:25:50 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 	list_a = ft_makelist();
 	list_b = ft_makelist();
 	cc = check_input_return_cc(argc, argv);
+	free(cc);
 	if (cc == NULL)
 		exit(EXIT_FAILURE);
 	input_list(argv, list_a);
@@ -35,5 +36,5 @@ int	main(int argc, char **argv)
 
 __attribute__((destructor)) static void destructor()
 {
-	system("leaks -q push_swap");
+	system("leaks push_swap");
 }
