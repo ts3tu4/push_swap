@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:50:38 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/06 15:25:01 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/18 17:10:18 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <limits.h>
 // # include <string.h>
 // # include <stdio.h>
-
-
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

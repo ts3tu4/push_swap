@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:34:33 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/14 13:36:35 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/18 18:03:17 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_node	**ft_makelist(void)
 	return (list_a);
 }
 
-t_node	**input_list(char **argv, t_node **list_a)
+t_node	**input_list(char **argv, t_node **list_a, int *cc)
 {
 	t_node	*tmp;
 	size_t	i;

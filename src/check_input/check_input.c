@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/18 16:54:06 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/18 18:03:00 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ char	**split_all_args(int argc, char **argv)
 		j = 0;
 		while (tmp[j] != NULL)
 		{
-			// splited_argv[num] = ft_strdup("0");
 			splited_argv[num] = ft_strdup(tmp[j]);
 			j++;
 			num++;
@@ -111,6 +110,7 @@ int	*check_input_return_cc(int argc, char **argv)
 			put_error(1);
 		len++;
 	}
+	check_duplicate(splited_argv);
 	cc = coordinate_compress(splited_argv, len);
 	return (cc);
 }

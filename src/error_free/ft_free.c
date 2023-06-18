@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:01:11 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/14 13:49:37 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/18 17:14:42 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,17 @@ void	free_list(t_node **list)
 		free(*list);
 		*list = tmp;
 	}
+}
+
+void	step_by_step_free(char **c, size_t i)
+{
+	size_t	j;
+
+	j = 0;
+	while (j < i)
+	{
+		free(c[j]);
+		j++;
+	}
+	free(c);
 }

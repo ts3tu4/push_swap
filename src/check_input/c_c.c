@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:09:47 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/18 16:56:48 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/18 17:49:51 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	*coordinate_compress(char **splited_argv, size_t	len)
 	int		*new_coordinate;
 	char	**sorted_arg;
 
-	check_duplicate(splited_argv);
 	new_coordinate = malloc(sizeof(int) * (len));
 	if (new_coordinate == NULL)
 		exit(EXIT_FAILURE);

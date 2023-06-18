@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:11:23 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/14 13:47:51 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/18 18:03:37 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ void		put_error(int a);
 void		ft_int_free(int *a);
 void		all_free(char **c);
 void		free_list(t_node **list);
+void		step_by_step_free(char **c, size_t i);
 // make list
 t_node		*newlist(int noerror_argv);
 t_node		**ft_makelist(void);
-t_node		**input_list(char **argv, t_node **list_a);
+t_node		**input_list(char **argv, t_node **list_a, int *cc);
 long int	push_swap_atoi(char *argv);
 t_node		*ft_lstlast(t_node *lst);
 void		ft_lstadd_back(t_node **lst, t_node *new);
