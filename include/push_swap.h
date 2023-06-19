@@ -44,7 +44,7 @@ void		all_free(char **c);
 void		free_list(t_node **list);
 void		step_by_step_free(char **c, size_t i);
 // make list
-t_node		*newlist(int noerror_argv);
+t_node		*newlist(int noerror_argv, int cc);
 t_node		**ft_makelist(void);
 t_node		**input_list(char **argv, t_node **list_a, int *cc);
 long int	push_swap_atoi(char *argv);

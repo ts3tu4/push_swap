@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include "libft.h"
 
-t_node	*newlist(int noerror_argv)
+t_node	*newlist(int noerror_argv, int cc)
 {
 	t_node	*nodeptr;
 
@@ -22,7 +22,7 @@ t_node	*newlist(int noerror_argv)
 		return (NULL);
 	nodeptr->prev = NULL;
 	nodeptr->num = noerror_argv;
-	nodeptr->index = 0;
+	nodeptr->index = cc;
 	nodeptr->next = NULL;
 	return (nodeptr);
 }
@@ -55,7 +55,7 @@ t_node	**input_list(char **argv, t_node **list_a, int *cc)
 		while (splited_argv[j] != NULL)
 		{
 			noerror_argv = push_swap_atoi(splited_argv[j]);
-			tmp = newlist(noerror_argv);
+			tmp = newlist(noerror_argv, cc[j]);
 			if (tmp == NULL)
 				free(tmp);
 			ft_lstadd_back(list_a, tmp);
