@@ -8,12 +8,15 @@ SRCS = main.c \
 		src/make_list/ft_makelist.c\
 		src/make_list/push_swap_atoi.c\
 		src/check_input/c_c_utils.c\
-		src/make_list/makelist_utils.c
+		src/make_list/makelist_utils.c\
+		src/sort/ft_sort.c\
+		src/sort/two_three_sort.c\
+		src/oparations/swap.c
 
 CC = cc
 
 HEAD_FILE = include/push_swap.h
-INCLUDES = -I./include -I./libft
+INCLUDES = -I./include -I./libft -I./ft_printf
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 

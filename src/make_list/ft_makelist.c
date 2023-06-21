@@ -15,7 +15,7 @@
 
 t_node	*newlist(int noerror_argv, int cc)
 {
-	t_node	*nodeptr;
+	t_node	*nodeptr;	
 
 	nodeptr = malloc(sizeof(t_node));
 	if (!nodeptr)
@@ -55,7 +55,7 @@ t_node	**input_list(char **argv, t_node **list_a, int *cc)
 		while (splited_argv[j] != NULL)
 		{
 			noerror_argv = push_swap_atoi(splited_argv[j]);
-			tmp = newlist(noerror_argv, cc[j]);
+			tmp = newlist(noerror_argv, *cc++);
 			if (tmp == NULL)
 				free(tmp);
 			ft_lstadd_back(list_a, tmp);

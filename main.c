@@ -27,11 +27,27 @@ int	main(int argc, char **argv)
 	if (cc == NULL)
 		exit(EXIT_FAILURE);
 	input_list(argv, list_a, cc);
+	print_list_a(list_a); //del
+	ft_sort(list_a, argc);
 	free_list(list_a);
 	free_list(list_b);
 	free(list_a);
 	free(list_b);
 }
+
+void	print_list_a(t_node **list_a)
+{
+	while ((*list_a) != NULL)
+	{
+		printf("a = [%d] %ld\t:\t%p\t%p\t%p\n",
+			(*list_a)->index, (*list_a)->num, (*list_a)->prev,
+			(*list_a), (*list_a)->next);
+		list_a = &(*list_a)->next;
+	}
+	while ((*list_a) != NULL)
+		list_a = &(*list_a)->prev;
+}
+
 
 __attribute__((destructor)) static void destructor()
 {
