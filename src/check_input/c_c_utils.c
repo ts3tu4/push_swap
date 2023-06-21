@@ -44,3 +44,17 @@ void	swap_str(char	**str1, char **str2)
 	*str1 = *str2;
 	*str2 = tmp;
 }
+
+void	ft_is_sorted(int *cc, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		if (cc[i] > cc[i + 1])
+			return ;
+		i++;
+	}
+	exit(EXIT_FAILURE);
+}

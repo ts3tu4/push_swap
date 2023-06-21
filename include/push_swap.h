@@ -37,6 +37,7 @@ void		bubble_sort(char **splited_argv, size_t len);
 int			ft_strcmp(const char *s1, const char *s2);
 char		**duplicate_array(char **orig_array, size_t len);
 void		swap_str(char	**str1, char **str2);
+void		ft_is_sorted(int *cc, int size);
 // error/free
 void		put_error(int a);
 void		ft_int_free(int *a);
