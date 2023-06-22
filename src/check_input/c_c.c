@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:09:47 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/18 17:49:51 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/22 15:58:57 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int	check_duplicate(char **splited_argv)
 	return (0);
 }
 
-void	bubble_sort(char **splited_argv, size_t len)
+void	bubble_sort(char **splited_argv, int len)
 {
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < len - 1)
@@ -64,9 +64,9 @@ void	bubble_sort(char **splited_argv, size_t len)
 	}
 }
 
-int	*coordinate_compress(char **splited_argv, size_t	len)
+int	*coordinate_compress(char **splited_argv, int len)
 {
-	size_t	i;
+	int		i;
 	size_t	j;
 	int		*new_coordinate;
 	char	**sorted_arg;

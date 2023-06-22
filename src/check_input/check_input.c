@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/18 18:03:00 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/22 16:01:36 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ long int	is_over_intmax(char *argv)
 	return (0);
 }
 
-char	**allocate_for_args(int argc, char **argv)
+char	**allocate_for_args(int *argc, char **argv)
 {
 	size_t	num;
 	int		i;
@@ -47,7 +47,7 @@ char	**allocate_for_args(int argc, char **argv)
 
 	i = 0;
 	num = 0;
-	while (i < argc)
+	while (i < *argc)
 	{
 		splited_arg = ft_split(argv[i], ' ');
 		j = 0;
@@ -66,7 +66,7 @@ char	**allocate_for_args(int argc, char **argv)
 	return (allcate_aplited_arg);
 }	
 
-char	**split_all_args(int argc, char **argv)
+char	**split_all_args(int *argc, char **argv)
 {
 	char	**splited_argv;
 	int		i;
@@ -77,7 +77,7 @@ char	**split_all_args(int argc, char **argv)
 	splited_argv = allocate_for_args(argc, argv);
 	i = 1;
 	num = 0;
-	while (i < argc)
+	while (i < *argc)
 	{
 		tmp = ft_split(argv[i], ' ');
 		j = 0;
@@ -94,13 +94,13 @@ char	**split_all_args(int argc, char **argv)
 	return (splited_argv);
 }
 
-int	*check_input_return_cc(int argc, char **argv)
+int	*check_input_return_cc(int *argc, char **argv)
 {
-	size_t	len;
+	int		len;
 	char	**splited_argv;
 	int		*cc;
 
-	if (argc == 1)
+	if (*argc == 1)
 		return (NULL);
 	len = 0;
 	splited_argv = split_all_args(argc, argv);
@@ -113,5 +113,6 @@ int	*check_input_return_cc(int argc, char **argv)
 	check_duplicate(splited_argv);
 	cc = coordinate_compress(splited_argv, len);
 	ft_is_sorted(cc, len);
+	*argc = len;
 	return (cc);
 }

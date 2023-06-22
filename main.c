@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:32:57 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/18 18:01:52 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/22 16:16:14 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	list_b = NULL;
 	list_a = ft_makelist();
 	list_b = ft_makelist();
-	cc = check_input_return_cc(argc, argv);
+	cc = check_input_return_cc(&argc, argv);
 	if (cc == NULL)
 		exit(EXIT_FAILURE);
 	input_list(argv, list_a, cc);
@@ -39,8 +39,8 @@ void	print_list_a(t_node **list_a)
 {
 	while ((*list_a) != NULL)
 	{
-		printf("a = [%d] %ld\t:\t%p\t%p\t%p\n",
-			(*list_a)->index, (*list_a)->num, (*list_a)->prev,
+		printf("a = [%d]\t:\t%p\t%p\t%p\n",
+			(*list_a)->index, (*list_a)->prev,
 			(*list_a), (*list_a)->next);
 		list_a = &(*list_a)->next;
 	}

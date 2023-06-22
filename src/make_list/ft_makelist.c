@@ -6,14 +6,14 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:34:33 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/18 18:03:17 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/22 16:14:32 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-t_node	*newlist(int noerror_argv, int cc)
+t_node	*newlist(int cc)
 {
 	t_node	*nodeptr;	
 
@@ -21,7 +21,6 @@ t_node	*newlist(int noerror_argv, int cc)
 	if (!nodeptr)
 		return (NULL);
 	nodeptr->prev = NULL;
-	nodeptr->num = noerror_argv;
 	nodeptr->index = cc;
 	nodeptr->next = NULL;
 	return (nodeptr);
@@ -55,7 +54,7 @@ t_node	**input_list(char **argv, t_node **list_a, int *cc)
 		while (splited_argv[j] != NULL)
 		{
 			noerror_argv = push_swap_atoi(splited_argv[j]);
-			tmp = newlist(noerror_argv, *cc++);
+			tmp = newlist(*cc++);
 			if (tmp == NULL)
 				free(tmp);
 			ft_lstadd_back(list_a, tmp);

@@ -10,7 +10,7 @@ SRCS = main.c \
 		src/check_input/c_c_utils.c\
 		src/make_list/makelist_utils.c\
 		src/sort/ft_sort.c\
-		src/sort/two_three_sort.c\
+		src/sort/less_than_five.c\
 		src/oparations/swap.c
 
 CC = cc
