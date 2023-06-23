@@ -6,12 +6,15 @@ SRCS = main.c \
 		src/error_free/ft_free.c\
 		src/error_free/ft_error.c\
 		src/make_list/ft_makelist.c\
-		src/make_list/push_swap_atoi.c\
 		src/check_input/c_c_utils.c\
 		src/make_list/makelist_utils.c\
 		src/sort/ft_sort.c\
-		src/sort/less_than_five.c\
-		src/oparations/swap.c
+		src/sort/three_or_less.c\
+		src/sort/six_or_less.c\
+		src/oparations/swap.c\
+		src/oparations/rotate.c\
+		src/oparations/push.c\
+		src/oparations/reverse_rotate.c
 
 CC = cc
 

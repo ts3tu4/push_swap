@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_atoi.c                                   :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/27 16:46:26 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/06 17:35:10 by mnanke           ###   ########.fr       */
+/*   Created: 2023/06/23 22:52:14 by mnanke            #+#    #+#             */
+/*   Updated: 2023/06/24 00:27:18 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../../include/push_swap.h"
-// #include "../../libft/libft.h"
 #include "push_swap.h"
 #include "libft.h"
+#include "ft_printf.h"
 
-long int	push_swap_atoi(char *argv)
+void	ft_reverse_rotate(t_node **list_a)
 {
-	int		pm;
-	long	ans;
+	t_node	*first_node;
+	t_node	*last_node;
 
-	pm = 1;
-	ans = 0;
-	if (*argv == '-' || *argv == '+')
-	{
-		if (*argv == '-')
-		pm *= -1;
-		argv ++;
-	}
-	while (*argv)
-		ans = ans * 10 + *argv++ - '0';
-	return (ans);
+	first_node = *list_a;
+	last_node = ft_lstlast(*list_a);
+	last_node->prev = NULL;
+	first_node->next->next = NULL;
+	last_node->next = first_node;
+	first_node->prev = last_node;
+	*list_a = last_node;
+}
+
+void	ft_print_rra(t_node **list_a)
+{
+	ft_reverse_rotate(list_a);
+	ft_printf("rra\n");
 }

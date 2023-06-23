@@ -43,7 +43,6 @@ t_node	**input_list(char **argv, t_node **list_a, int *cc)
 	size_t	i;
 	size_t	j;
 	char	**splited_argv;
-	int		noerror_argv;
 
 	i = 1;
 	splited_argv = NULL;
@@ -53,7 +52,6 @@ t_node	**input_list(char **argv, t_node **list_a, int *cc)
 		j = 0;
 		while (splited_argv[j] != NULL)
 		{
-			noerror_argv = push_swap_atoi(splited_argv[j]);
 			tmp = newlist(*cc++);
 			if (tmp == NULL)
 				free(tmp);

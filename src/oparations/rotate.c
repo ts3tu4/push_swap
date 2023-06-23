@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 20:19:45 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/24 00:02:23 by mnanke           ###   ########.fr       */
+/*   Created: 2023/06/23 22:51:46 by mnanke            #+#    #+#             */
+/*   Updated: 2023/06/23 23:36:34 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	ft_swap(t_node **list_a)
+void	ft_rotate(t_node **list_a)
 {
 	t_node	*first_node;
-	t_node	*second_node;
+	t_node	*last_node;
 
 	first_node = *list_a;
-	second_node = (*list_a)->next;
-	first_node->next = second_node->next;
-	first_node->prev = second_node;
-	second_node->prev = NULL;
-	second_node->next = first_node;
-	first_node->next->prev = first_node;
-	*list_a = second_node;
+	last_node = ft_lstlast(*list_a);
+	*list_a = (*list_a)->next;
+	(*list_a)->prev = NULL;
+	first_node->prev = last_node;
+	first_node->next = NULL;
+	last_node->next = first_node;
 }
 
-void	ft_print_sa(t_node **list_a)
+void	ft_print_ra(t_node **list_a)
 {
-	ft_swap(list_a);
-	ft_printf("sa\n");
+	ft_rotate(list_a);
+	ft_printf("ra\n");
 }

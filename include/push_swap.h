@@ -47,7 +47,6 @@ void		step_by_step_free(char **c, size_t i);
 t_node		*newlist(int cc);
 t_node		**ft_makelist(void);
 t_node		**input_list(char **argv, t_node **list_a, int *cc);
-long int	push_swap_atoi(char *argv);
 t_node		*ft_lstlast(t_node *lst);
 void		ft_lstadd_back(t_node **lst, t_node *new);
 int			*change_int_ptr(char ***splited_argv, int argc);
@@ -56,9 +55,14 @@ t_node		**ft_sort(t_node **list_a, int argc);
 t_node		**ft_three_or_less(t_node **list_a, int argc);
 t_node		**ft_five_or_less(t_node **list_a, t_node **list_b, int argc);
 t_node		**ft_three_sort(t_node **list_a);
+t_node		**ft_three_sort_second(t_node **list_a, t_node *second);
 //operations
 void		ft_print_sa(t_node **list_a);
 void		ft_swap(t_node **list_a);
+void		ft_print_ra(t_node **list_a);
+void		ft_rotate(t_node **list_a);
+void		ft_print_rra(t_node **list_a);
+void		ft_reverse_rotate(t_node **list_a);
 // test
 void		print_list_a(t_node **list_a);
 #endif
