@@ -31,12 +31,12 @@ t_node	**ft_three_or_less(t_node **list_a, int argc)
 // 	return (list_a);
 // }
 
-t_node	**ft_sort(t_node **list_a, int argc)
+t_node	**ft_sort(t_node **list_a, t_node **list_b, int argc)
 {
 	if (argc <= 3)
 		ft_three_or_less(list_a, argc);
-	// else if (argc <= 6)
-	// 	ft_five_or_less(list_a, list_b, argc);
+	else if (argc <= 6)
+		ft_six_or_less(list_a, list_b, argc);
 	// else if (argc > 6)
 	// 	ft_six_or_more(list_a, list_b, argc);
 	return (list_a);

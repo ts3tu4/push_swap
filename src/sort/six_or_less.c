@@ -6,9 +6,14 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 00:34:31 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/24 00:36:31 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/24 23:39:45 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
+
+t_node	ft_six_or_less(t_node **list_a, t_node **list_b, int argc)
+{
+	
+}

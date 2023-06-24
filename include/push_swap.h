@@ -51,7 +51,7 @@ t_node		*ft_lstlast(t_node *lst);
 void		ft_lstadd_back(t_node **lst, t_node *new);
 int			*change_int_ptr(char ***splited_argv, int argc);
 //sort
-t_node		**ft_sort(t_node **list_a, int argc);
+t_node		**ft_sort(t_node **list_a, t_node **list_b, int argc);
 t_node		**ft_three_or_less(t_node **list_a, int argc);
 t_node		**ft_five_or_less(t_node **list_a, t_node **list_b, int argc);
 t_node		**ft_three_sort(t_node **list_a);
