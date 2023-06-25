@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 20:17:11 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/22 16:28:54 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/06/25 14:30:22 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,6 @@ t_node	**ft_three_or_less(t_node **list_a, int argc)
 		ft_three_sort(list_a);
 	return (list_a);
 }
-
-// t_node	**ft_five_or_less(t_node **list_a, t_node **list_b, int argc)
-// {
-// 	if (argc == 4)
-// 		ft_four_sort(list_a, list_b);
-// 	else
-// 		ft_five_sort(list_a, list_b);
-// 	return (list_a);
-// }
 
 t_node	**ft_sort(t_node **list_a, t_node **list_b, int argc)
 {
