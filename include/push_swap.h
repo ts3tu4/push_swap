@@ -54,7 +54,8 @@ int			*change_int_ptr(char ***splited_argv, int argc);
 t_node		**ft_sort(t_node **list_a, t_node **list_b, int argc);
 t_node		**ft_three_or_less(t_node **list_a, int argc);
 t_node		**ft_three_sort(t_node **list_a);
-t_node		**ft_three_sort_second(t_node **list_a, t_node *second);
+int			is_index_not_sorted(t_node **list_a);
+t_node		return_from_b(t_node **list_a, t_node **list_b);
 t_node		**ft_six_or_less(t_node **list_a, t_node **list_b, int argc);
 void		move_min_to_b(t_node **list_a, t_node **list_b);
 //operations
@@ -65,6 +66,8 @@ void		ft_rotate(t_node **list_a);
 void		ft_print_rra(t_node **list_a);
 void		ft_reverse_rotate(t_node **list_a);
 void		ft_push(t_node **list_a, t_node **list_b);
+void		ft_print_pb(t_node **list_a, t_node **list_b);
+void		ft_print_pa(t_node **list_a, t_node **list_b);
 // test
 void		print_list_a(t_node **list_a);
 #endif

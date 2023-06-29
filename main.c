@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	input_list(argv, list_a, cc);
 	print_list_a(list_a); //del
 	ft_sort(list_a, list_b, argc);
+	print_list_a(list_a); //del
 	free_list(list_a);
 	free_list(list_b);
 	free(list_a);

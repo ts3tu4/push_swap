@@ -13,33 +13,43 @@
 #include "push_swap.h"
 #include "libft.h"
 
-t_node	**ft_three_sort(t_node **list_a)
+int	is_index_not_sorted(t_node **list_a)
 {
 	t_node	*second;
+	t_node	*tmp;
 
-	second = (*list_a)->next;
-	if ((*list_a)->index == 2 && second->index == 0)
-		ft_print_ra(list_a);
-	else if ((*list_a)->index == 1 && second->index == 2)
-		ft_print_rra(list_a);
-	else if ((*list_a)->index == 1 && second->index == 0)
-		ft_print_sa(list_a);
-	else
-		ft_three_sort_second(list_a, second);
-	return (list_a);
+	if (!list_a || !(*list_a))
+		return (0);
+	tmp = *list_a;
+	second = tmp->next;
+	while (tmp != NULL && second != NULL)
+	{
+		if (tmp->index > second->index)
+			return (1);
+		second = second->next;
+		tmp = tmp->next;
+	}
+	return (0);
 }
 
-t_node	**ft_three_sort_second(t_node **list_a, t_node *second)
+t_node	**ft_three_sort(t_node **list_a)
 {
-	if ((*list_a)->index == 2 && second->index == 1)
+	int	second;
+
+	if (!list_a || !(*list_a) || !(*list_a)->next)
+		return (list_a);
+	while (1)
 	{
-		ft_print_sa(list_a);
-		ft_print_rra(list_a);
-	}
-	if ((*list_a)->index == 0 && second->index == 2)
-	{
-		ft_print_sa(list_a);
-		ft_print_ra(list_a);
+		if (!(is_index_not_sorted(list_a)))
+			break ;
+		second = (*list_a)->next->index;
+		if ((((*list_a)->index) - second) == 1
+			|| (((*list_a)->index) - second) == -2)
+			ft_print_sa(list_a);
+		else if (((*list_a)->index) - second == -1)
+			ft_print_rra(list_a);
+		else if (((*list_a)->index) - second == 2)
+			ft_print_ra(list_a);
 	}
 	return (list_a);
 }

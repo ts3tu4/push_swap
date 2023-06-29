@@ -15,24 +15,39 @@
 
 int	get_min_index(t_node **list_a)
 {
-	int	min_index;
+	int		min_index;
+	t_node	*tmp;
 
-	min_index = (*list_a)->index;
-	*list_a = (*list_a)->next;
-	while ((*list_a) != NULL)
+	tmp = *list_a;
+	min_index = tmp->index;
+	tmp = tmp->next;
+	while (tmp != NULL)
 	{
-		if ((*list_a)->index < min_index)
-			min_index = (*list_a)->index;
-		*list_a = (*list_a)->next;
+		if (tmp->index < min_index)
+			min_index = tmp->index;
+	tmp = tmp->next;
 	}
 	return (min_index);
 }
 
 void	move_min_to_b(t_node **list_a, t_node **list_b)
 {
-	while ((*list_a)->index != get_min_index(*list_a))
-		ft_rotate(list_a);
-	ft_push(list_a, list_b);
+	int	min_index;
+
+	if (!list_a || !(*list_a))
+		return ;
+	min_index = get_min_index(list_a);
+	while ((*list_a) && ((*list_a)->index != min_index))
+		ft_print_ra(list_a);
+	if (list_a && *list_a)
+		ft_print_pb(list_a, list_b);
+}
+
+t_node	return_from_b(t_node **list_a, t_node **list_b)
+{
+	while ((*list_b) != NULL)
+		ft_print_pa(list_a, list_b);
+	return (**list_a);
 }
 
 t_node	**ft_six_or_less(t_node **list_a, t_node **list_b, int argc)
@@ -41,7 +56,11 @@ t_node	**ft_six_or_less(t_node **list_a, t_node **list_b, int argc)
 
 	num = argc;
 	while (num > 3)
+	{
 		move_min_to_b(list_a, list_b);
-	//3tu sort owattara listb kara modosu
+		num -= 1;
+	}
+	ft_three_sort(list_a);
+	return_from_b(list_a, list_b);
 	return (list_a);
 }

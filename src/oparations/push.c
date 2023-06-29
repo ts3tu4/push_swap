@@ -29,3 +29,15 @@ void	ft_push(t_node **list_a, t_node **list_b)
 	tmp->prev = NULL;
 	*list_b = tmp;
 }
+
+void	ft_print_pb(t_node **list_a, t_node **list_b)
+{
+	ft_push(list_a, list_b);
+	ft_printf("pb\n");
+}
+
+void	ft_print_pa(t_node **list_a, t_node **list_b)
+{
+	ft_push(list_b, list_a);
+	ft_printf("pa\n");
+}
