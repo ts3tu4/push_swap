@@ -14,7 +14,8 @@ SRCS = main.c \
 		src/oparations/swap.c\
 		src/oparations/rotate.c\
 		src/oparations/push.c\
-		src/oparations/reverse_rotate.c
+		src/oparations/reverse_rotate.c\
+		src/sort/seven_or_more.c
 
 CC = cc
 
