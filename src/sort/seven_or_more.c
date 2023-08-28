@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 18:44:35 by mnanke            #+#    #+#             */
-/*   Updated: 2023/08/28 22:41:53 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/08/28 22:52:28 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	sort_in_b(t_node **list_a, t_node **list_b, int num)
 	j = 0;
 	while (i <= num)
 	{
-		if ((*list_b)->index - (*list_b)->next->index == -1)//oko na kigasuru tabune
+		if ((*list_b)->index - (*list_b)->next->index == -1)//oko na kigasuru
 			ft_print_rb(list_b);
 		else
 			ft_print_sb(list_b);
