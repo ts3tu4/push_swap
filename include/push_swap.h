@@ -58,7 +58,7 @@ int			is_index_not_sorted(t_node **list_a);
 t_node		return_from_b(t_node **list_a, t_node **list_b);
 t_node		**ft_six_or_less(t_node **list_a, t_node **list_b, int argc);
 void		move_min_to_b(t_node **list_a, t_node **list_b);
-void		**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc);
+t_node		**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc);
 //operations
 void		ft_print_sa(t_node **list_a);
 void		ft_swap(t_node **list_a);
