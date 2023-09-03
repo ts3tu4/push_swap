@@ -6,29 +6,12 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 00:34:31 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/25 14:34:20 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/03 16:08:05 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
-
-int	get_min_index(t_node **list_a)
-{
-	int		min_index;
-	t_node	*tmp;
-
-	tmp = *list_a;
-	min_index = tmp->index;
-	tmp = tmp->next;
-	while (tmp != NULL)
-	{
-		if (tmp->index < min_index)
-			min_index = tmp->index;
-	tmp = tmp->next;
-	}
-	return (min_index);
-}
 
 void	move_min_to_b(t_node **list_a, t_node **list_b)
 {

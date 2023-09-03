@@ -6,13 +6,15 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 18:44:35 by mnanke            #+#    #+#             */
-/*   Updated: 2023/08/28 22:52:28 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/03 18:53:16 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
+// 半分をｂに移してそのあと半分以上と以下にソート
+//1kaime mudana rb ari
 void	divide_to_b(t_node **list_a, t_node **list_b, int num)
 {
 	int		half_num;
@@ -29,7 +31,7 @@ void	divide_to_b(t_node **list_a, t_node **list_b, int num)
 		if (((*list_a)->index) <= half_num)
 		{
 			ft_print_pb(list_a, list_b);
-			if ((*list_b)->index >= quarter_num)
+			if ((*list_b)->index <= quarter_num)
 				ft_print_rb(list_b);
 			j++;
 			if (j == half_num)
@@ -41,44 +43,48 @@ void	divide_to_b(t_node **list_a, t_node **list_b, int num)
 	}
 }
 
-void	sort_in_b(t_node **list_a, t_node **list_b, int num)
+//ｂに分けられたものが3こ以下なら3こ以下ソート←これ分ける、それ以上なら3個になるまで半分でソートしつつaにもどす
+void	sort_in_b(t_node **list_a, t_node **list_b, int b_num, int comp_num)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	j = 0;
-	while (i <= num)
+	i = b_num;
+	j = i / 2;
+	while (0 < i)
 	{
-		if ((*list_b)->index - (*list_b)->next->index == -1)//oko na kigasuru
+		if (i <= 3)
+		{
+			ft_three_sort(list_b);
+			while (i < 0)
+			{
+				ft_print_pa(list_a, list_b);
+				ft_print_ra(list_a);
+				comp_num++;
+				i--;
+			}
+			break ;
+		}
+		// need sep
+		if (((*list_b)->index) >= j)
+		{
+			ft_print_pa(list_a, list_b);
 			ft_print_rb(list_b);
-		else
-			ft_print_sb(list_b);
-		i++;
+		}
 	}
 }
 
-t_node	**quick_sort_b(t_node **list_a, t_node **list_b, int num)
-{
-	size_t	i;
-
-	divide_to_b(list_a, list_b, num);
-	sort_in_b(list_a, list_b, num);
-	i = 0;
-	while (i <= num)
-	{
-		ft_print_pa(list_a, list_b);
-		i++;
-	}
-	return (list_a);
-}
-
+//しょりが終わったものの個数を持っておく関数必要じゃない？
 t_node	**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc)
 {
 	int	num;
+	int	half_num;
+	int	comp_num;
 
 	num = argc;
-	//num 100 to 500de wakeruno 
-	quick_sort_b(list_a, list_b, num);
-	retrun (list_a);
+	half_num = num / 2;
+	comp_num = 0;
+	divide_to_b(list_a, list_b, num);
+	sort_in_b(list_a, list_b, half_num, comp_num);
+	return (list_a);
 }
