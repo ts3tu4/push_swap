@@ -53,7 +53,7 @@ void	sort_in_b(t_node **list_a, t_node **list_b, int b_num, int comp_num)
 	j = i / 2;
 	while (0 < i)
 	{
-		if (i <= 3)
+		if (i <= 3)//or B is already sorted
 		{
 			ft_three_sort(list_b);
 			while (i < 0)
