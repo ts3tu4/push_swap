@@ -65,3 +65,8 @@ int	is_index_not_sorted(t_node **list_a)
 	}
 	return (0);
 }
+
+int	sortednum_to_a_bot(t_node **list_a, t_node **list_b, int b_num, int comp_num)
+{
+
+}
