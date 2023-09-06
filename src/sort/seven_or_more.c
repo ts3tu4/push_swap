@@ -43,7 +43,6 @@ void	divide_to_b(t_node **list_a, t_node **list_b, int num)
 	}
 }
 
-//ｂに分けられたものが3こ以下なら3こ以下ソート←これ分ける、それ以上なら3個になるまで半分でソートしつつaにもどす
 void	sort_in_b(t_node **list_a, t_node **list_b, int b_num, int comp_num)
 {
 	size_t	i;
@@ -53,20 +52,7 @@ void	sort_in_b(t_node **list_a, t_node **list_b, int b_num, int comp_num)
 	j = i / 2;
 	while (0 < i)
 	{
-		if (i <= 3 || !(is_index_not_sorted(list_b)))
-		{
-			if (i <= 3)
-				ft_three_sort(list_b);
-			while (i < 0)
-			{
-				ft_print_pa(list_a, list_b);
-				ft_print_ra(list_a);
-				comp_num++;
-				i--;
-			}
-			break ;
-		}
-		// need sep
+		comp_num += sortednum_to_abot(list_a, list_b, b_num);
 		if (((*list_b)->index) >= j)
 		{
 			ft_print_pa(list_a, list_b);
@@ -74,8 +60,6 @@ void	sort_in_b(t_node **list_a, t_node **list_b, int b_num, int comp_num)
 		}
 	}
 }
-
-//void denakute int nishite comp_num kaesu?-> betsunokansuu tsukuru!
 
 //しょりが終わったものの個数を持っておく関数必要じゃない？
 t_node	**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc)
