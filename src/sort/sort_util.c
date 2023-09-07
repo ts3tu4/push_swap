@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include "libft.h"
 
-int	get_min_index(t_node **list_a)
+int	get_min_index(t_node **list_a, int comp_num)
 {
 	int		min_index;
 	t_node	*tmp;
@@ -23,9 +23,11 @@ int	get_min_index(t_node **list_a)
 	tmp = tmp->next;
 	while (tmp != NULL)
 	{
+		if (tmp->index < comp_num)
+			tmp = tmp->next;
 		if (tmp->index < min_index)
 			min_index = tmp->index;
-	tmp = tmp->next;
+		tmp = tmp->next;
 	}
 	return (min_index);
 }
@@ -42,9 +44,33 @@ int	get_max_index(t_node **list_a)
 	{
 		if (tmp->index > max_index)
 			max_index = tmp->index;
-	tmp = tmp->next;
+		tmp = tmp->next;
 	}
 	return (max_index);
+}
+
+int	get_mid_index(t_node **list_a, int comp_num)
+{
+	int	min_index;
+	int	mid_index;
+	int	max_index;
+
+	min_index = get_min_index(list_a, comp_num);
+	max_index = get_max_index(list_a);
+	mid_index = ((max_index - min_index) / 2) + min_index;
+	return (mid_index);
+}
+
+int	get_quater_index(t_node **list_a, int comp_num)
+{
+	int	mid_index;
+	int	min_index;
+	int	quater_index;
+
+	min_index = get_min_index(list_a, comp_num);
+	mid_index = get_mid_index(list_a, comp_num);
+	quater_index = ((mid_index - min_index) / 2) + min_index;
+	return (quater_index);
 }
 
 int	is_index_not_sorted(t_node **list_a)
@@ -65,31 +91,3 @@ int	is_index_not_sorted(t_node **list_a)
 	}
 	return (0);
 }
-
-int	sortednum_to_abot(t_node **list_a, t_node **list_b, int b_num)
-{
-	size_t	i;
-	size_t	j;
-	int		comp_num;
-
-	i = b_num;
-	j = i / 2;
-	while (0 < i)
-	{
-		if (i <= 3 || !(is_index_not_sorted(list_b)))
-		{
-			if (i <= 3)
-				ft_three_sort(list_b);
-			while (i < 0)
-			{
-				ft_print_pa(list_a, list_b);
-				ft_print_ra(list_a);
-				comp_num++;
-				i--;
-			}
-			break ;
-		}
-	}
-	return (comp_num);
-}
-//未完成 B-Numの中が3個かソートされてたらソートしてAの下に置く
