@@ -23,7 +23,14 @@ typedef struct s_node{
 	struct s_node	*prev;
 	int				index;
 	struct s_node	*next;
+	int				block;
 }	t_node;
+
+typedef struct s_stack{
+	t_node	*top;
+	t_node	*bottom;
+	int		count;
+}	t_stack;
 
 // check input
 long int	is_over_intmax(char *argv);
