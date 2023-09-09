@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:11:23 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/25 14:29:49 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/09 18:22:37 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@
 typedef struct s_node{
 	struct s_node	*prev;
 	int				index;
-	struct s_node	*next;
 	int				block;
+	struct s_node	*next;
 }	t_node;
 
-typedef struct s_stack{
+typedef struct s_monitor{
 	t_node	*top;
 	t_node	*bottom;
 	int		count;
-}	t_stack;
+}	t_monitor;
 
 // check input
 long int	is_over_intmax(char *argv);
@@ -67,13 +67,16 @@ t_node		**ft_six_or_less(t_node **list_a, t_node **list_b, int argc);
 void		move_min_to_b(t_node **list_a, t_node **list_b);
 t_node		**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc);
 //operations
-void		ft_print_sa(t_node **list_a);
 void		ft_swap(t_node **list_a);
-void		ft_print_ra(t_node **list_a);
 void		ft_rotate(t_node **list_a);
-void		ft_print_rra(t_node **list_a);
 void		ft_reverse_rotate(t_node **list_a);
 void		ft_push(t_node **list_a, t_node **list_b);
+void		ft_print_ra(t_node **list_a);
+void		ft_print_rb(t_node **list_b);
+void		ft_print_sa(t_node **list_a);
+void		ft_print_sb(t_node **list_b);
+void		ft_print_rra(t_node **list_a);
+void		ft_print_rrb(t_node **list_b);
 void		ft_print_pb(t_node **list_a, t_node **list_b);
 void		ft_print_pa(t_node **list_a, t_node **list_b);
 // test

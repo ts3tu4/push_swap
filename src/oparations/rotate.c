@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 22:51:46 by mnanke            #+#    #+#             */
-/*   Updated: 2023/07/04 00:22:28 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/09 18:41:33 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,18 @@ void	ft_print_rb(t_node **list_b)
 {
 	ft_rotate(list_b);
 	ft_printf("rb\n");
+}
+
+void	ft_print_ra_extra(t_node **list_a, t_monitor *monitor_a)
+{
+	ft_rotate(list_a);
+	ft_printf("ra\n");
+	ft_monitoringlist(list_a, monitor_a);
+}
+
+void	ft_print_rb_extra(t_node **list_b, t_monitor *monitor_b)
+{
+	ft_rotate(list_b);
+	ft_printf("rb\n");
+	ft_monitoringlist(list_b, monitor_b);
 }

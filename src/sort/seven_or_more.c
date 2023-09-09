@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 18:44:35 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/08 21:24:02 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/09 18:55:53 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	push_halfgreatervalues(t_node **list_a, t_node **list_b, int comp_num)
 	size_t	count;
 
 	mid_num = get_mid_index(list_b, comp_num);
-	i = 0;
-	while (i <= mid_num)
+	count = 0;
+	while (count <= mid_num)
 	{
 		ft_print_pa(list_a, list_b);
 		count++;
@@ -105,15 +105,18 @@ int	sortednum_to_abot(t_node **list_a, t_node **list_b, int b_num, int comp_num)
 	return (comp_num);
 }
 
-//しょりが終わったものの個数を持っておく関数必要じゃない？
 t_node	**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc)
 {
-	int	comp_num;
-	int	sort_num;
-	int	b_num;
+	int			comp_num;
+	int			sort_num;
+	int			b_num;
+	t_monitor	*monitor_a;
+	t_monitor	*monitor_b;
 
 	sort_num = argc;
 	comp_num = 0;
+	monitor_a = ft_makemonitor(list_a);
+	monitor_b = ft_makemonitor(list_b);
 	while (comp_num <= argc)
 	{
 		divide_to_b(list_a, list_b, sort_num, comp_num);
@@ -121,6 +124,7 @@ t_node	**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc)
 		sort_in_b(list_a, list_b, b_num, comp_num);
 		sortednum_to_abot(list_a, list_b, b_num, comp_num);
 	}
+	free(monitor_a);
+	free(monitor_b);
 	return (list_a);
 }
-//b_num to a_num tukuru
