@@ -13,28 +13,41 @@
 #include "push_swap.h"
 #include "libft.h"
 
+int	split6_search(t_node **list_a, t_node *tmp,
+	int mid_num, int halfblock_num)
+{
+	if ((tmp->index) >= (mid_num + halfblock_num * 5)
+		|| (tmp->index) <= (mid_num - halfblock_num * 5))
+		return (6);
+	else if ((tmp->index) >= (mid_num + halfblock_num * 4)
+		|| (tmp->index) <= (mid_num - halfblock_num * 4))
+		return (5);
+	else if ((tmp->index) >= (mid_num + halfblock_num * 3)
+		|| (tmp->index) <= (mid_num - halfblock_num * 3))
+		return (4);
+	else if ((tmp->index) >= (mid_num + halfblock_num * 2)
+		|| (tmp->index) <= (mid_num - halfblock_num * 2))
+		return (3);
+	else if ((tmp->index) >= (mid_num + halfblock_num * 1)
+		|| (tmp->index) <= (mid_num - halfblock_num * 1))
+		return (2);
+	else
+		return (1);
+}
+
 void	split6(t_node **list_a, int argc)
 {
-	int		index_num;
-	int		oneblock_num;
-	size_t	i;
-	size_t	j;
+	int		halfblock_num;
+	int		mid_num;
 	t_node	*tmp;
 
-	index_num = argc;
-	oneblock_num = index_num / 6;
+	halfblock_num = argc / 12;
+	mid_num = get_mid_index(list_a, 0);
 	tmp = *list_a;
-	j = 1;
 	while (tmp != NULL)
 	{
-		i = 1;
-		while ((j <= 5 && i <= oneblock_num) || (j == 6 && tmp != NULL))
-		{
-			tmp->block = j;
+			tmp->block = split6_search(list_a, tmp, mid_num, halfblock_num);
 			tmp = tmp->next;
-			i++;
-		}
-		j++;
 	}
 }
 
