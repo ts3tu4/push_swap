@@ -6,23 +6,28 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:32:57 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/22 16:16:14 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/09 18:49:33 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-int	main(int argc, char **argv)
+void	prep_make_list(t_node **list_a, t_node **list_b)
 {
-	t_node	**list_a;
-	t_node	**list_b;
-	int		*cc;
-
 	list_a = NULL;
 	list_b = NULL;
 	list_a = ft_makelist();
 	list_b = ft_makelist();
+}
+
+int	main(int argc, char **argv)
+{
+	t_node		**list_a;
+	t_node		**list_b;
+	int			*cc;
+
+	prep_make_list(list_a, list_b);
 	cc = check_input_return_cc(&argc, argv);
 	if (cc == NULL)
 		exit(EXIT_FAILURE);
