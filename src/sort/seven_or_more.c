@@ -20,7 +20,6 @@ void	send_mid_to_b(t_node **list_a, t_node **list_b,
 	int	mid_num;
 
 	mid_num = get_mid_index(list_a, 0);
-	//printf("mid_num:%d\n", mid_num);
 	i = 1;
 	while ((monitor_a->count) > 0)
 	{
@@ -28,9 +27,15 @@ void	send_mid_to_b(t_node **list_a, t_node **list_b,
 		{
 			if ((*list_a)->block == i)
 			{
-				if ((*list_a)->index < mid_num)//tabun koredeok
+				// printf("i:%d\tindex:%d\tblock:%d\tmid_num:%d\n", i, (*list_a)->index, (*list_a)->block, mid_num);
+				// print_list_a(list_a);
+				// printf("-----------\n");
+				// print_list_a(list_b);
+				if ((*list_a)->index <= mid_num)
+				{
 					ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
 					ft_print_rb_extra(list_b, monitor_b);
+				}
 				else
 					ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
 			}
@@ -46,8 +51,12 @@ void	split6(t_node **list_a, int argc)
 	int		halfblock_num;
 	int		mid_num;
 	t_node	*tmp;
+	int		div_num;
 
-	halfblock_num = argc / 12;
+	div_num = 12;
+	if (argc < 12)
+		div_num = argc;
+	halfblock_num = argc / div_num;
 	mid_num = get_mid_index(list_a, 0);
 	tmp = *list_a;
 	while (tmp != NULL)
@@ -65,7 +74,6 @@ t_node	**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc)
 	monitor_a = ft_makemonitor(list_a);
 	monitor_b = ft_makemonitor(list_b);
 	split6(list_a, argc);
-	print_list_a(list_a);
 	send_mid_to_b(list_a, list_b, monitor_a, monitor_b);
 	free(monitor_a);
 	free(monitor_b);
