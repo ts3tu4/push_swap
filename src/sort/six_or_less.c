@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 00:34:31 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/03 16:08:05 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/10 17:19:23 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	move_min_to_b(t_node **list_a, t_node **list_b)
 
 	if (!list_a || !(*list_a))
 		return ;
-	min_index = get_min_index(list_a);
+	min_index = get_min_index(list_a, 0);
 	while ((*list_a) && ((*list_a)->index != min_index))
 		ft_print_ra(list_a);
 	if (list_a && *list_a)

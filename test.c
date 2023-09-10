@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   monitoring.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/09 18:14:49 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/10 19:15:17 by mnanke           ###   ########.fr       */
+/*   Created: 2023/09/10 18:50:31 by mnanke            #+#    #+#             */
+/*   Updated: 2023/09/10 19:14:58 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-t_monitor	*ft_monitoringlist(t_node **list_a, t_monitor *monitor_a)
+void	print_list_a(t_node **list_a)
 {
-	monitor_a->top = *list_a;
-	monitor_a->bottom = ft_lstlast(*list_a);
-	monitor_a->count = ft_lstsize(*list_a);
-	return (monitor_a);
+	while ((*list_a) != NULL)
+	{
+		printf("a = [%d]\t:\t%p\t%p\t%p\t%d\n",
+			(*list_a)->index, (*list_a)->prev,
+			(*list_a), (*list_a)->next, (*list_a)->block);
+		list_a = &(*list_a)->next;
+	}
+	while ((*list_a) != NULL)
+		list_a = &(*list_a)->prev;
 }
 
-t_monitor	*ft_makemonitor(t_node **list_a)
+void	print_monitoringlist(t_monitor *monitor_a)
 {
-	t_monitor	*monitor;
-
-	monitor = malloc(sizeof(t_monitor));
-	if (!monitor)
-		return (NULL);
-	monitor->top = *list_a;
-	monitor->bottom = ft_lstlast(*list_a);
-	monitor->count = ft_lstsize(*list_a);
-	return (monitor);
+	printf("[monitor]\ntop:%p\tbottom:%p\tcount:%d\n",
+		monitor_a->top, monitor_a->bottom, monitor_a->count);
 }

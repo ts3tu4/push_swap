@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:34:33 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/09 18:19:38 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/10 19:10:58 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,4 @@ t_node	**input_list(char **argv, t_node **list_a, int *cc)
 		i++;
 	}
 	return (list_a);
-}
-
-t_monitor	*ft_makemonitor(t_node **list_a)
-{
-	t_monitor	*monitor;
-
-	monitor = malloc(sizeof(t_monitor));
-	if (!monitor)
-		return (NULL);
-	monitor->top = *list_a;
-	monitor->bottom = ft_lstlast(list_a);
-	monitor->count = ft_lstsize(list_a);
-	return (monitor);
 }

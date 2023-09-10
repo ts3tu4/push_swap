@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 22:51:26 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/09 18:35:51 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/10 21:16:31 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_push(t_node **list_a, t_node **list_b)
 	tmp->next = *list_b;
 	if (*list_b)
 		(*list_b)->prev = tmp;
-	tmp->next = *list_b;
 	tmp->prev = NULL;
 	*list_b = tmp;
 }
