@@ -28,11 +28,11 @@ void	send_mid_to_b(t_node **list_a, t_node **list_b,
 		{
 			if ((*list_a)->block == i)
 			{
-				ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
-				//printf("list_bIND:%d\n", (*list_b)->index);
-				if ((*list_b)->index < mid_num)//okashiiii!!!!!!!!!!
+				if ((*list_a)->index < mid_num)//tabun koredeok
+					ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
 					ft_print_rb_extra(list_b, monitor_b);
-				//printf("list_bIND:%d\n", (*list_b)->index);
+				else
+					ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
 			}
 			else
 				ft_print_ra_extra(list_a, monitor_a);
