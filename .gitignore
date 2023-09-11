@@ -54,4 +54,5 @@ dkms.conf
 #mine
 *.sh
 *.json
-.vscode/
+.vscode/settings.json
+.vscode/tasks.json
