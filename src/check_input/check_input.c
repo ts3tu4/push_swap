@@ -94,24 +94,47 @@ char	**split_all_args(int *argc, char **argv)
 	return (splited_argv);
 }
 
+int	char_to_int(char *splited_argv)
+{
+	int		c2i;
+	int		pm;
+
+	pm = 1;
+	if (*splited_argv == '-' || *splited_argv == '+')
+	{
+		if (*splited_argv == '-')
+			pm *= -1;
+		splited_argv++;
+	}
+	c2i = 0;
+	while (*splited_argv && ft_isdigit(*splited_argv))
+		c2i = c2i * 10 + *splited_argv++ - '0';
+	return (c2i * pm);
+}
+
 int	*check_input_return_cc(int *argc, char **argv)
 {
-	int		len;
 	char	**splited_argv;
+	int		*c2i;
 	int		*cc;
+	int		len;
 
 	if (*argc == 1)
 		return (NULL);
-	len = 0;
+	c2i = malloc(sizeof(int) * (*argc));
+	if (!c2i)
+		return (NULL);
 	splited_argv = split_all_args(argc, argv);
+	len = 0;
 	while (splited_argv[len] != NULL)
 	{
 		if (is_over_intmax(splited_argv[len]) == 1)
 			put_error(1);
+		c2i[len] = char_to_int(splited_argv[len]);
 		len++;
 	}
-	check_duplicate(splited_argv);
-	cc = coordinate_compress(splited_argv, len);
+	check_duplicate(c2i, len);
+	cc = coordinate_compress(c2i, len);
 	ft_is_sorted(cc, len);
 	*argc = len;
 	return (cc);

@@ -37,12 +37,10 @@ long int	is_over_intmax(char *argv);
 int			*check_input_return_cc(int *argc, char **argv);
 char		**allocate_for_args(int *argc, char **argv);
 char		**split_all_args(int *argc, char **argv);
-int			check_duplicate(char **splited_argv);
-int			*coordinate_compress(char **splited_argv, int len);
-void		bubble_sort(char **splited_argv, int len);
-int			ft_strcmp(const char *s1, const char *s2);
-char		**duplicate_array(char **orig_array, size_t len);
-void		swap_str(char	**str1, char **str2);
+int			check_duplicate(int *c2i, int len);
+int			*coordinate_compress(int *c2i, int len);
+int			*bubble_sort(int *sorted_intager, int len);
+void		swap_int(int *n, int *m);
 void		ft_is_sorted(int *cc, int size);
 // error/free
 void		put_error(int a);
@@ -53,7 +51,7 @@ void		step_by_step_free(char **c, size_t i);
 // make list
 t_node		*newlist(int cc);
 t_node		**ft_makelist(void);
-t_node		**input_list(char **argv, t_node **list_a, int *cc);
+t_node		**input_list(t_node **list_a, int *cc, int argc);
 t_node		*ft_lstlast(t_node *lst);
 void		ft_lstadd_back(t_node **lst, t_node *new);
 t_monitor	*ft_makemonitor(t_node **list_a);

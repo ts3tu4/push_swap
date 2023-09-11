@@ -38,28 +38,17 @@ t_node	**ft_makelist(void)
 	return (list_a);
 }
 
-t_node	**input_list(char **argv, t_node **list_a, int *cc)
+t_node	**input_list(t_node **list_a, int *cc, int argc)
 {
 	t_node	*tmp;
-	size_t	i;
-	size_t	j;
-	char	**splited_argv;
+	int		i;
 
-	i = 1;
-	splited_argv = NULL;
-	while (argv[i] != NULL)
+	i = 0;
+	while (i < argc)
 	{
-		splited_argv = ft_split(argv[i], ' ');
-		j = 0;
-		while (splited_argv[j] != NULL)
-		{
-			tmp = newlist(*cc++);
-			if (tmp == NULL)
-				free(tmp);
-			ft_lstadd_back(list_a, tmp);
-			j++;
-		}
-		all_free(splited_argv);
+		printf("cc:%d\n", cc[i]);
+		tmp = newlist(cc[i]);
+		ft_lstadd_back(list_a, tmp);
 		i++;
 	}
 	return (list_a);
