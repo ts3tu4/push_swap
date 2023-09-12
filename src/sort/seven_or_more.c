@@ -27,17 +27,11 @@ void	send_mid_to_b(t_node **list_a, t_node **list_b,
 		{
 			if ((*list_a)->block == i)
 			{
-				// printf("i:%d\tindex:%d\tblock:%d\tmid_num:%d\n", i, (*list_a)->index, (*list_a)->block, mid_num);
-				// print_list_a(list_a);
-				// printf("-----------\n");
-				// print_list_a(list_b);
-				if ((*list_a)->index <= mid_num)
-				{
-					ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
-					ft_print_rb_extra(list_b, monitor_b);
-				}
+				ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
+				if ((*list_b)->index <= mid_num)
+					fill_lower_half(list_b, monitor_b, i);
 				else
-					ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
+					fill_upper_half(list_b, i);
 			}
 			else
 				ft_print_ra_extra(list_a, monitor_a);

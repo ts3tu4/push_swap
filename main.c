@@ -28,9 +28,9 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	input_list(list_a, cc, argc);
 	free(cc);
-	print_list_a(list_a); //del
+	//print_list_a(list_a); //del
 	ft_sort(list_a, list_b, argc);
-	print_list_a(list_b); //del
+	//print_list_a(list_b); //del
 	free_list(list_a);
 	free_list(list_b);
 	free(list_a);

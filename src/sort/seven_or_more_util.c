@@ -46,3 +46,20 @@ int	is_num_in_block(t_node **list_a, int i)
 	}
 	return (0);
 }
+
+void	fill_lower_half(t_node **list_b, t_monitor *monitor_b, int i)
+{
+	int	block_num;
+
+	block_num = 7 - i;
+	(*list_b)->block = block_num;
+	ft_print_rb_extra(list_b, monitor_b);
+}
+
+void	fill_upper_half(t_node **list_b, int i)
+{
+	int	block_num;
+
+	block_num = 6 + i;
+	(*list_b)->block = block_num;
+}
