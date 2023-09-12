@@ -39,6 +39,7 @@ char		**allocate_for_args(int *argc, char **argv);
 char		**split_all_args(int *argc, char **argv);
 int			check_duplicate(int *c2i, int len);
 int			*coordinate_compress(int *c2i, int len);
+int			splited_len(char **splited_argv);
 int			*bubble_sort(int *sorted_intager, int len);
 void		swap_int(int *n, int *m);
 void		ft_is_sorted(int *cc, int size);

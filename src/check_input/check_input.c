@@ -15,8 +15,8 @@
 
 long int	is_over_intmax(char *argv)
 {
-	int		pm;
-	long	ans;
+	int			pm;
+	long long	ans;
 
 	pm = 1;
 	ans = 0;
@@ -121,12 +121,13 @@ int	*check_input_return_cc(int *argc, char **argv)
 
 	if (*argc == 1)
 		return (NULL);
+	splited_argv = split_all_args(argc, argv);
+	*argc = splited_len(splited_argv);
 	c2i = malloc(sizeof(int) * (*argc));
 	if (!c2i)
 		return (NULL);
-	splited_argv = split_all_args(argc, argv);
 	len = 0;
-	while (splited_argv[len] != NULL)
+	while (len < *argc)
 	{
 		if (is_over_intmax(splited_argv[len]) == 1)
 			put_error(1);
@@ -136,6 +137,7 @@ int	*check_input_return_cc(int *argc, char **argv)
 	check_duplicate(c2i, len);
 	cc = coordinate_compress(c2i, len);
 	ft_is_sorted(cc, len);
-	*argc = len;
+	free(c2i);
+	all_free(splited_argv);
 	return (cc);
 }

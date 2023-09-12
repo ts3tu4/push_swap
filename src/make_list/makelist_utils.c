@@ -15,7 +15,7 @@
 
 t_node	*ft_lstlast(t_node *lst)
 {
-	if (!lst)
+	if (lst == NULL)
 		return (NULL);
 	while (lst->next)
 		lst = lst->next;
@@ -32,7 +32,11 @@ void	ft_lstadd_back(t_node **lst, t_node *new)
 	if (tmp == NULL)
 		*lst = new;
 	else
+	{
 		tmp->next = new;
+		new->prev = tmp;
+	}
+	new->next = NULL;
 }
 
 int	ft_lstsize(t_node *list)

@@ -19,7 +19,7 @@ t_node	*newlist(int cc)
 
 	nodeptr = malloc(sizeof(t_node));
 	if (!nodeptr)
-		return (NULL);
+		exit (EXIT_FAILURE);
 	nodeptr->prev = NULL;
 	nodeptr->index = cc;
 	nodeptr->block = 0;
@@ -46,8 +46,11 @@ t_node	**input_list(t_node **list_a, int *cc, int argc)
 	i = 0;
 	while (i < argc)
 	{
-		printf("cc:%d\n", cc[i]);
+		//printf("argc:%d\tcc[%d]:%d\n", argc, i, cc[i]);
 		tmp = newlist(cc[i]);
+		// printf("tmp = [%d]\t:\tprevp:%p\tlistp:%p\tnextp:%p\tblock:%d\n",
+		// 	(tmp)->index, (tmp)->prev,
+		// 	(tmp), (tmp)->next, (tmp)->block);
 		ft_lstadd_back(list_a, tmp);
 		i++;
 	}

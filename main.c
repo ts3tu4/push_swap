@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	t_node	**list_a;
 	t_node	**list_b;
 	int		*cc;
+
 	list_a = NULL;
 	list_b = NULL;
 	list_a = ft_makelist();
@@ -26,9 +27,10 @@ int	main(int argc, char **argv)
 	if (cc == NULL)
 		exit(EXIT_FAILURE);
 	input_list(list_a, cc, argc);
-	//print_list_a(list_a); //del
+	free(cc);
+	print_list_a(list_a); //del
 	ft_sort(list_a, list_b, argc);
-	//print_list_a(list_a); //del
+	print_list_a(list_b); //del
 	free_list(list_a);
 	free_list(list_b);
 	free(list_a);

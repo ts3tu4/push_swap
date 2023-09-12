@@ -35,3 +35,13 @@ void	swap_int(int *n, int *m)
 	*n = *m;
 	*m = tmp;
 }
+
+int	splited_len(char **splited_argv)
+{
+	int	len;
+
+	len = 0;
+	while (splited_argv[len] != NULL)
+		len++;
+	return (len);
+}
