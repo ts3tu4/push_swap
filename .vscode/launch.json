@@ -2,34 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(lldb) launch with current file",
+            "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/push_swap_debug",
+            "program": "${workspaceFolder}/push_swap",
             "args": [
-                "2 5 3"
-            ],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb"
-        },
-        {
-            "name": "(lldb) launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/push_swap_debug",
-            "args": [
-                "2 5 3"
+                "4 6 1 5 -1 -9 7 -4 12"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "make_debug"
-        },
-    ],
-    "compounds": []
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
 }
