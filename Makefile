@@ -18,7 +18,8 @@ SRCS = main.c \
 		src/sort/seven_or_more.c\
 		src/sort/sort_util.c\
 		src/sort/monitoring.c\
-		src/sort/seven_or_more_util.c\
+		src/sort/util1_seven_or_more.c\
+		src/sort/util2_seven_or_more.c\
 		test.c
 
 CC = cc
