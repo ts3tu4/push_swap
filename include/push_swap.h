@@ -77,6 +77,8 @@ int			get_quater_index(t_node **list_a, int comp_num);
 int			split6_search(t_node *tmp, int mid_num, int halfblock_num);
 t_monitor	*ft_monitoringlist(t_node **list_a, t_monitor *monitor_a);
 int			is_num_in_block(t_node **list_a, int i);
+void		fill_lower_half(t_node **list_b, t_monitor *monitor_b, int i);
+void		fill_upper_half(t_node **list_b, int i);
 //operations
 void		ft_swap(t_node **list_a);
 void		ft_rotate(t_node **list_a);

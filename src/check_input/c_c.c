@@ -87,6 +87,7 @@ int	*coordinate_compress(int *c2i, int len)
 	ft_memcpy(sorted_intager, c2i, len * sizeof(int));
 	sorted_intager = bubble_sort(sorted_intager, len);
 	cc_while(sorted_intager, new_coordinate, c2i, len);
+	ft_is_sorted(new_coordinate, len);
 	free(sorted_intager);
 	return (new_coordinate);
 }

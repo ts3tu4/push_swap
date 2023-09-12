@@ -136,7 +136,6 @@ int	*check_input_return_cc(int *argc, char **argv)
 	}
 	check_duplicate(c2i, len);
 	cc = coordinate_compress(c2i, len);
-	ft_is_sorted(cc, len);
 	free(c2i);
 	all_free(splited_argv);
 	return (cc);
