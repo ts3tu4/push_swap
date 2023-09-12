@@ -17,7 +17,9 @@ SRCS = main.c \
 		src/oparations/reverse_rotate.c\
 		src/sort/seven_or_more.c\
 		src/sort/sort_util.c\
-		src/sort/monitoring.c
+		src/sort/monitoring.c\
+		src/sort/seven_or_more_util.c\
+		test.c
 
 CC = cc
 

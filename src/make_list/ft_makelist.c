@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:34:33 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/09 18:19:38 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/10 19:10:58 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_node	*newlist(int cc)
 
 	nodeptr = malloc(sizeof(t_node));
 	if (!nodeptr)
-		return (NULL);
+		exit (EXIT_FAILURE);
 	nodeptr->prev = NULL;
 	nodeptr->index = cc;
 	nodeptr->block = 0;
@@ -38,42 +38,21 @@ t_node	**ft_makelist(void)
 	return (list_a);
 }
 
-t_node	**input_list(char **argv, t_node **list_a, int *cc)
+t_node	**input_list(t_node **list_a, int *cc, int argc)
 {
 	t_node	*tmp;
-	size_t	i;
-	size_t	j;
-	char	**splited_argv;
+	int		i;
 
-	i = 1;
-	splited_argv = NULL;
-	while (argv[i] != NULL)
+	i = 0;
+	while (i < argc)
 	{
-		splited_argv = ft_split(argv[i], ' ');
-		j = 0;
-		while (splited_argv[j] != NULL)
-		{
-			tmp = newlist(*cc++);
-			if (tmp == NULL)
-				free(tmp);
-			ft_lstadd_back(list_a, tmp);
-			j++;
-		}
-		all_free(splited_argv);
+		//printf("argc:%d\tcc[%d]:%d\n", argc, i, cc[i]);
+		tmp = newlist(cc[i]);
+		// printf("tmp = [%d]\t:\tprevp:%p\tlistp:%p\tnextp:%p\tblock:%d\n",
+		// 	(tmp)->index, (tmp)->prev,
+		// 	(tmp), (tmp)->next, (tmp)->block);
+		ft_lstadd_back(list_a, tmp);
 		i++;
 	}
 	return (list_a);
-}
-
-t_monitor	*ft_makemonitor(t_node **list_a)
-{
-	t_monitor	*monitor;
-
-	monitor = malloc(sizeof(t_monitor));
-	if (!monitor)
-		return (NULL);
-	monitor->top = *list_a;
-	monitor->bottom = ft_lstlast(list_a);
-	monitor->count = ft_lstsize(list_a);
-	return (monitor);
 }

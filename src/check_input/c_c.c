@@ -13,30 +13,19 @@
 #include "push_swap.h"
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	check_duplicate(int *c2i, int len)
 {
-	while (*s2 != '\0' || *s1 != '\0')
-	{
-		if (*s1 != *s2)
-			return ((unsigned char)*s1 - (unsigned char)*s2);
-		s1++;
-		s2++;
-	}
-	return (0);
-}
-
-int	check_duplicate(char **splited_argv)
-{
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while (splited_argv[i] != NULL)
+	while (i < len)
 	{
 		j = i + 1;
-		while (splited_argv[j] != NULL)
+		while (j < len)
 		{
-			if (ft_strcmp(splited_argv[i], splited_argv[j]) == 0)
+			// printf("c2i[%d]:%d\tc2i[%d]:%d\n", i, c2i[i], j, c2i[j]);
+			if (c2i[i] == c2i[j])
 				put_error(1);
 			j++;
 		}
@@ -45,7 +34,7 @@ int	check_duplicate(char **splited_argv)
 	return (0);
 }
 
-void	bubble_sort(char **splited_argv, int len)
+int	*bubble_sort(int *sorted_intager, int len)
 {
 	int		i;
 	int		j;
@@ -56,39 +45,48 @@ void	bubble_sort(char **splited_argv, int len)
 		j = 0;
 		while (j < len - i - 1)
 		{
-			if (ft_strcmp(splited_argv[j], splited_argv[j + 1]) > 0)
-				swap_str(&splited_argv[j], &splited_argv[j + 1]);
+			if ((sorted_intager[j] - sorted_intager[j + 1]) > 0)
+				swap_int(&sorted_intager[j], &sorted_intager[j + 1]);
+			j++;
+		}
+		i++;
+	}
+	return (sorted_intager);
+}
+
+void	cc_while(int *sorted_intager, int *new_coordinate, int *c2i, int len)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = 0;
+		while (j < len)
+		{
+			if ((sorted_intager[i] == c2i[j]))
+				new_coordinate[j] = i;
 			j++;
 		}
 		i++;
 	}
 }
 
-int	*coordinate_compress(char **splited_argv, int len)
+int	*coordinate_compress(int *c2i, int len)
 {
-	int		i;
-	size_t	j;
 	int		*new_coordinate;
-	char	**sorted_arg;
+	int		*sorted_intager;
 
 	new_coordinate = malloc(sizeof(int) * (len));
 	if (new_coordinate == NULL)
 		exit(EXIT_FAILURE);
-	sorted_arg = duplicate_array(splited_argv, len);
-	bubble_sort(sorted_arg, len);
-	i = 0;
-	while (i < len)
-	{
-		j = 0;
-		while (splited_argv[j])
-		{
-			if ((ft_strcmp(sorted_arg[i], splited_argv[j])) == 0)
-				new_coordinate[j] = i;
-			j++;
-		}
-		i++;
-	}
-	all_free(sorted_arg);
-	all_free(splited_argv);
+	sorted_intager = malloc(sizeof(int) * (len));
+	if (sorted_intager == NULL)
+		exit(EXIT_FAILURE);
+	ft_memcpy(sorted_intager, c2i, len * sizeof(int));
+	sorted_intager = bubble_sort(sorted_intager, len);
+	cc_while(sorted_intager, new_coordinate, c2i, len);
+	free(sorted_intager);
 	return (new_coordinate);
 }

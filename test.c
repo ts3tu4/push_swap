@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_c_utils.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 20:54:15 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/18 17:16:18 by mnanke           ###   ########.fr       */
+/*   Created: 2023/09/10 18:50:31 by mnanke            #+#    #+#             */
+/*   Updated: 2023/09/10 19:14:58 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-void	ft_is_sorted(int *cc, int size)
+void	print_list_a(t_node **list_a)
 {
-	int	i;
-
-	i = 0;
-	while (i < size - 1)
+	while ((*list_a) != NULL)
 	{
-		if (cc[i] > cc[i + 1])
-			return ;
-		i++;
+		printf("a = [%d]\t:\tprevp:%p\tlistp:%p\tnextp:%p\tblock:%d\n",
+			(*list_a)->index, (*list_a)->prev,
+			(*list_a), (*list_a)->next, (*list_a)->block);
+		list_a = &(*list_a)->next;
 	}
-	exit(EXIT_FAILURE);
+	while ((*list_a) != NULL)
+		list_a = &(*list_a)->prev;
 }
 
-void	swap_int(int *n, int *m)
+void	print_monitoringlist(t_monitor *monitor_a)
 {
-	int	tmp;
-
-	tmp = *n;
-	*n = *m;
-	*m = tmp;
-}
-
-int	splited_len(char **splited_argv)
-{
-	int	len;
-
-	len = 0;
-	while (splited_argv[len] != NULL)
-		len++;
-	return (len);
+	printf("[monitor]\ntop:%p\tbottom:%p\tcount:%d\n",
+		monitor_a->top, monitor_a->bottom, monitor_a->count);
 }

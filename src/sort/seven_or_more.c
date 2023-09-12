@@ -6,35 +6,63 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 19:29:37 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/09 21:19:59 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/10 21:52:00 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
+void	send_mid_to_b(t_node **list_a, t_node **list_b,
+	t_monitor *monitor_a, t_monitor *monitor_b)
+{
+	int	i;
+	int	mid_num;
+
+	mid_num = get_mid_index(list_a, 0);
+	i = 1;
+	while ((monitor_a->count) > 0)
+	{
+		while (is_num_in_block(list_a, i))
+		{
+			if ((*list_a)->block == i)
+			{
+				// printf("i:%d\tindex:%d\tblock:%d\tmid_num:%d\n", i, (*list_a)->index, (*list_a)->block, mid_num);
+				// print_list_a(list_a);
+				// printf("-----------\n");
+				// print_list_a(list_b);
+				if ((*list_a)->index <= mid_num)
+				{
+					ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
+					ft_print_rb_extra(list_b, monitor_b);
+				}
+				else
+					ft_print_pb_extra(list_a, list_b, monitor_a, monitor_b);
+			}
+			else
+				ft_print_ra_extra(list_a, monitor_a);
+		}
+		i++;
+	}
+}
+
 void	split6(t_node **list_a, int argc)
 {
-	int		index_num;
-	int		oneblock_num;
-	size_t	i;
-	size_t	j;
+	int		halfblock_num;
+	int		mid_num;
 	t_node	*tmp;
+	int		div_num;
 
-	index_num = argc;
-	oneblock_num = index_num / 6;
+	div_num = 12;
+	if (argc < 12)
+		div_num = argc;
+	halfblock_num = argc / div_num;
+	mid_num = get_mid_index(list_a, 0);
 	tmp = *list_a;
-	j = 1;
 	while (tmp != NULL)
 	{
-		i = 1;
-		while ((j <= 5 && i <= oneblock_num) || (j == 6 && tmp != NULL))
-		{
-			tmp->block = j;
-			tmp = tmp->next;
-			i++;
-		}
-		j++;
+		tmp->block = split6_search(tmp, mid_num, halfblock_num);
+		tmp = tmp->next;
 	}
 }
 
@@ -46,6 +74,7 @@ t_node	**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc)
 	monitor_a = ft_makemonitor(list_a);
 	monitor_b = ft_makemonitor(list_b);
 	split6(list_a, argc);
+	send_mid_to_b(list_a, list_b, monitor_a, monitor_b);
 	free(monitor_a);
 	free(monitor_b);
 	return (list_a);
