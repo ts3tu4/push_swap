@@ -13,30 +13,14 @@
 #include "push_swap.h"
 #include "libft.h"
 
-void	send_back_to_a(t_node **list_a, t_node **list_b,
+void	sort_to_a(t_node **list_a, t_node **list_b,
 	t_monitor *monitor_a, t_monitor *monitor_b)
 {
-	int		max_num;
-	int		mid_num;
-	int		i;
+	int	max_index;
 
-	mid_num = get_mid_index(list_b, 0);
-	max_num = get_max_index(list_b);
-	if (find_b_max_in_top(list_b, monitor_b))
-	{
-		while ()
-		{
-			ft_print_rb_extra(list_b, monitor_b);
-		}
-	}
-	else
-		while ()
-		{
-			ft_print_rrb_extra(list_b, monitor_b);
-		}
-
-
-
+	max_index = 
+	while (monitor_b->count != 0)
+		send_back_to_a(list_a, list_b, monitor_a, monitor_b, max_index);
 }
 
 void	send_mid_to_b(t_node **list_a, t_node **list_b,
@@ -90,12 +74,11 @@ t_node	**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc)
 {
 	t_monitor	*monitor_a;
 	t_monitor	*monitor_b;
-
 	monitor_a = ft_makemonitor(list_a);
 	monitor_b = ft_makemonitor(list_b);
 	split6(list_a, argc);
 	send_mid_to_b(list_a, list_b, monitor_a, monitor_b);
-	send_back_to_a(list_a, list_b, monitor_a, monitor_b);
+	sort_to_a(list_a, list_b, monitor_a, monitor_b);
 	free(monitor_a);
 	free(monitor_b);
 	return (list_a);

@@ -66,7 +66,7 @@ t_node		**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc);
 void		split6(t_node **list_a, int argc);
 void		send_mid_to_b(t_node **list_a, t_node **list_b,
 				t_monitor *monitor_a, t_monitor *monitor_b);
-void		send_back_to_a(t_node **list_a, t_node **list_b,
+void		sort_to_a(t_node **list_a, t_node **list_b,
 				t_monitor *monitor_a, t_monitor *monitor_b);
 //sort_util
 int			is_index_not_sorted(t_node **list_a);
@@ -77,11 +77,15 @@ int			get_max_index(t_node **list_a);
 int			get_mid_index(t_node **list_a, int comp_num);
 int			get_quater_index(t_node **list_a, int comp_num);
 int			split6_search(t_node *tmp, int mid_num, int halfblock_num);
+void		sort_to_a(t_node **list_a, t_node **list_b,
+				t_monitor *monitor_a, t_monitor *monitor_b);
 t_monitor	*ft_monitoringlist(t_node **list_a, t_monitor *monitor_a);
 int			is_num_in_block(t_node **list_a, int i);
 void		fill_lower_half(t_node **list_b, t_monitor *monitor_b, int i);
 void		fill_upper_half(t_node **list_b, int i);
-int			find_b_max_in_top(t_node **list_b, t_monitor *monitor_b);
+int			find_b_max_in_top(t_node **list_b);
+void		send_back_to_a(t_node **list_a, t_node **list_b,
+				t_monitor *monitor_a, t_monitor *monitor_b);
 //operations
 void		ft_swap(t_node **list_a);
 void		ft_rotate(t_node **list_a);
