@@ -83,9 +83,7 @@ t_monitor	*ft_monitoringlist(t_node **list_a, t_monitor *monitor_a);
 int			is_num_in_block(t_node **list_a, int i);
 void		fill_lower_half(t_node **list_b, t_monitor *monitor_b, int i);
 void		fill_upper_half(t_node **list_b, int i);
-int			find_b_max_in_top(t_node **list_b);
-void		send_back_to_a(t_node **list_a, t_node **list_b,
-				t_monitor *monitor_a, t_monitor *monitor_b);
+int			find_b_max_in_top(t_node **list_b, int max_num);
 //operations
 void		ft_swap(t_node **list_a);
 void		ft_rotate(t_node **list_a);

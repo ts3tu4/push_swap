@@ -16,11 +16,22 @@
 void	sort_to_a(t_node **list_a, t_node **list_b,
 	t_monitor *monitor_a, t_monitor *monitor_b)
 {
-	int	max_index;
+	int	max_num;
+	int	i;
 
-	max_index = 
+	max_num = get_max_index(list_b);
+	i = 0;
 	while (monitor_b->count != 0)
-		send_back_to_a(list_a, list_b, monitor_a, monitor_b, max_index);
+	{
+		if (!find_b_max_in_top(list_b, max_num - i))
+			while ((*list_b)->index != max_num - i)
+				ft_print_rb_extra(list_b, monitor_b);
+		else
+			while ((*list_b)->index != max_num - i)
+				ft_print_rrb_extra(list_b, monitor_b);
+		ft_print_pa_extra(list_a, list_b, monitor_a, monitor_b);
+		i++;
+	}
 }
 
 void	send_mid_to_b(t_node **list_a, t_node **list_b,
