@@ -13,17 +13,15 @@
 #include "push_swap.h"
 #include "libft.h"
 
-int	find_b_max_in_top(t_node **list_b, t_monitor *monitor_b)
+int	find_b_max_in_top(t_node **list_b, int max_num)
 {
-	int		max_num;
 	int		mid_num;
 	t_node	*tmp;
 	int		i;
 
 	tmp = *list_b;
-	mid_num = get_mid_index(list_b, 0);
-	max_num = get_max_index(list_b);
 	i = 0;
+	mid_num = get_mid_index(list_b, 0);
 	while (tmp->index != max_num)
 	{
 		tmp = tmp->next;

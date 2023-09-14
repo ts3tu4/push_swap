@@ -21,8 +21,8 @@ void	ft_reverse_rotate(t_node **list_a)
 
 	first_node = *list_a;
 	last_node = ft_lstlast(*list_a);
+	last_node->prev->next = NULL;
 	last_node->prev = NULL;
-	first_node->next->next = NULL;
 	last_node->next = first_node;
 	first_node->prev = last_node;
 	*list_a = last_node;
