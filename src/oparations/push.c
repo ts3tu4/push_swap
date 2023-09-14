@@ -41,7 +41,6 @@ void	ft_print_pb(t_node **list_a, t_node **list_b)
 	ft_printf("pb\n");
 }
 
-
 void	ft_print_pa_extra(t_node **list_a, t_node **list_b,
 	t_monitor *monitor_a, t_monitor *monitor_b)
 {

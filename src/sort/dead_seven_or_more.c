@@ -117,7 +117,6 @@ t_node	**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc)
 	comp_num = 0;
 	monitor_a = ft_makemonitor(list_a);
 	monitor_b = ft_makemonitor(list_b);
-	
 	while (comp_num <= argc)
 	{
 		divide_to_b(list_a, list_b, sort_num, comp_num);

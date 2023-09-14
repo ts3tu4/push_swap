@@ -24,7 +24,6 @@ int	check_duplicate(int *c2i, int len)
 		j = i + 1;
 		while (j < len)
 		{
-			// printf("c2i[%d]:%d\tc2i[%d]:%d\n", i, c2i[i], j, c2i[j]);
 			if (c2i[i] == c2i[j])
 				put_error(1);
 			j++;

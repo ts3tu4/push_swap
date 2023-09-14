@@ -85,6 +85,7 @@ t_node	**ft_seven_or_more(t_node **list_a, t_node **list_b, int argc)
 {
 	t_monitor	*monitor_a;
 	t_monitor	*monitor_b;
+
 	monitor_a = ft_makemonitor(list_a);
 	monitor_b = ft_makemonitor(list_b);
 	split6(list_a, argc);
