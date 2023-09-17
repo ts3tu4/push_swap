@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:09:47 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/22 15:58:57 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/17 20:35:51 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	cc_while(int *sorted_intager, int *new_coordinate, int *c2i, int len)
 		j = 0;
 		while (j < len)
 		{
-			if ((sorted_intager[i] == c2i[j]))
+			if (sorted_intager[i] == c2i[j])
 				new_coordinate[j] = i;
 			j++;
 		}
