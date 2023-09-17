@@ -37,18 +37,22 @@ void	sort_to_a(t_node **list_a, t_node **list_b,
 		block_num = max_block_num_b(list_b);
 		if (!find_b_max_in_top(list_b, max_num))
 			while ((*list_b)->index != max_num
-				|| (*list_b)->index != max_num - 1
-				|| !is_min_index_in_block(list_b, block_num, (*list_b)->index))
+				&& (*list_b)->index != max_num - 1
+				&& is_min_index_in_block(list_b, block_num, (*list_b)->index))
 				ft_print_rb_extra(list_b, monitor_b);
 		else
 		{
 			while ((*list_b)->index != max_num
-				|| (*list_b)->index != max_num - 1
-				|| !is_min_index_in_block(list_b, block_num, (*list_b)->index))
+				&& (*list_b)->index != max_num - 1
+				&& is_min_index_in_block(list_b, block_num, (*list_b)->index))
 				ft_print_rrb_extra(list_b, monitor_b);
 		}
 		ft_print_pa_extra(list_a, list_b, monitor_a, monitor_b);
 		check_list_a_sort(list_a, monitor_a, max_num);
+		printf("-------\na\n");
+		print_list_a(list_a);
+		printf("-------\nb\n");
+		print_list_a(list_b);
 	}
 }
 

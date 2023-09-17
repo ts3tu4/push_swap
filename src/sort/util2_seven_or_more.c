@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include "libft.h"
 
-int	find_b_max_ina_top(t_node **list_b, int max_num)
+int	find_b_max_in_top(t_node **list_b, int max_num)
 {
 	int		mid_num;
 	t_node	*tmp;
