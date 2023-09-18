@@ -17,7 +17,7 @@ void	check_list_a_sort(t_node **list_a, t_monitor *monitor_a, int max_num)
 {
 	if (monitor_a ->count == 1)
 		return ;
-	else if ((*list_a)->next->index < (*list_a)->index)
+	else if (((*list_a)->next->index) - ((*list_a)->index) == -1)
 		ft_print_sa_extra(list_a, monitor_a);
 	else if ((*list_a)->index == max_num || (*list_a)->index == max_num - 1)
 		return ;

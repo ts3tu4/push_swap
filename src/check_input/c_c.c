@@ -44,7 +44,7 @@ int	*bubble_sort(int *sorted_intager, int len)
 		j = 0;
 		while (j < len - i - 1)
 		{
-			if ((sorted_intager[j] - sorted_intager[j + 1]) > 0)
+			if (sorted_intager[j] > sorted_intager[j + 1])
 				swap_int(&sorted_intager[j], &sorted_intager[j + 1]);
 			j++;
 		}
@@ -74,8 +74,8 @@ void	cc_while(int *sorted_intager, int *new_coordinate, int *c2i, int len)
 
 int	*coordinate_compress(int *c2i, int len)
 {
-	int		*new_coordinate;
-	int		*sorted_intager;
+	int	*new_coordinate;
+	int	*sorted_intager;
 
 	new_coordinate = malloc(sizeof(int) * (len));
 	if (new_coordinate == NULL)
