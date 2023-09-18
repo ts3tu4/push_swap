@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:11:23 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/10 19:51:58 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/17 20:40:52 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void		send_mid_to_b(t_node **list_a, t_node **list_b,
 				t_monitor *monitor_a, t_monitor *monitor_b);
 void		sort_to_a(t_node **list_a, t_node **list_b,
 				t_monitor *monitor_a, t_monitor *monitor_b);
+void		check_list_a_sort(t_node **list_a,
+				t_monitor *monitor_a, int max_num);
 //sort_util
 int			is_index_not_sorted(t_node **list_a);
 t_node		return_from_b(t_node **list_a, t_node **list_b);
@@ -84,6 +86,8 @@ int			is_num_in_block(t_node **list_a, int i);
 void		fill_lower_half(t_node **list_b, t_monitor *monitor_b, int i);
 void		fill_upper_half(t_node **list_b, int i);
 int			find_b_max_in_top(t_node **list_b, int max_num);
+int			is_min_index_in_block(t_node **list_b, int block_num, int c_index);
+int			max_block_num_b(t_node **list_b);
 //operations
 void		ft_swap(t_node **list_a);
 void		ft_rotate(t_node **list_a);

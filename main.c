@@ -28,9 +28,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	input_list(list_a, cc, argc);
 	free(cc);
-	//print_list_a(list_a); //del
 	ft_sort(list_a, list_b, argc);
-	//print_list_a(list_b); //del
 	free_list(list_a);
 	free_list(list_b);
 	free(list_a);
@@ -38,7 +36,26 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-__attribute__((destructor)) static void destructor()
-{
-	system("leaks push_swap");
-}
+// __attribute__((destructor)) static void destructor()
+// {
+// 	system("leaks push_swap");
+// }
+
+// void	print_list_a(t_node **list_a)
+// {
+// 	while ((*list_a) != NULL)
+// 	{
+// 		printf("[%d]\t:\tprevp:%p\tlistp:%p\tnextp:%p\tblock:%d\n",
+// 			(*list_a)->index, (*list_a)->prev,
+// 			(*list_a), (*list_a)->next, (*list_a)->block);
+// 		list_a = &(*list_a)->next;
+// 	}
+// 	while ((*list_a) != NULL)
+// 		list_a = &(*list_a)->prev;
+// }
+
+// void	print_monitoringlist(t_monitor *monitor_a)
+// {
+// 	printf("[monitor]\ntop:%p\tbottom:%p\tcount:%d\n",
+// 		monitor_a->top, monitor_a->bottom, monitor_a->count);
+// }

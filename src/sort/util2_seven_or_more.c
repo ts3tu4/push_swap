@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 01:57:32 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/13 02:20:25 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/17 20:46:19 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,46 @@ int	find_b_max_in_top(t_node **list_b, int max_num)
 	if (i > mid_num)
 		return (1);
 	return (0);
+}
+
+int	is_min_index_in_block(t_node **list_b, int block_num, int c_index)
+{
+	t_node	*tmp;
+	int		min_index;
+
+	tmp = *list_b;
+	if (tmp->block == block_num)
+		min_index = tmp->index;
+	else
+	{
+		while (tmp->block != block_num)
+			tmp = tmp->next;
+		min_index = tmp->index;
+	}
+	tmp = tmp->next;
+	while (tmp != NULL)
+	{
+		if (block_num == tmp->block && tmp->index < min_index)
+			min_index = tmp->index;
+		tmp = tmp->next;
+	}
+	if (c_index == min_index)
+		return (0);
+	return (1);
+}
+
+int	max_block_num_b(t_node **list_b)
+{
+	t_node	*tmp;
+	int		max_block_num;
+
+	tmp = *list_b;
+	max_block_num = 0;
+	while (tmp != NULL)
+	{
+		if (tmp->block > max_block_num)
+			max_block_num = tmp->block;
+		tmp = tmp->next;
+	}
+	return (max_block_num);
 }
