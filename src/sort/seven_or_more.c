@@ -15,14 +15,14 @@
 
 void	check_list_a_sort(t_node **list_a, t_monitor *monitor_a, int max_num)
 {
-	if ((*list_a)->index == max_num || monitor_a ->count == 0)
+	if (monitor_a ->count == 1)
 		return ;
 	else if ((*list_a)->next->index < (*list_a)->index)
 		ft_print_sa_extra(list_a, monitor_a);
+	else if ((*list_a)->index == max_num || (*list_a)->index == max_num - 1)
+		return ;
 	else
 		ft_print_ra_extra(list_a, monitor_a);
-	while (monitor_a->bottom->index == (*list_a)->index - 1)
-		ft_print_rra_extra(list_a, monitor_a);
 }
 
 void	sort_to_a(t_node **list_a, t_node **list_b,
@@ -49,10 +49,9 @@ void	sort_to_a(t_node **list_a, t_node **list_b,
 		}
 		ft_print_pa_extra(list_a, list_b, monitor_a, monitor_b);
 		check_list_a_sort(list_a, monitor_a, max_num);
-		printf("-------\na\n");
-		print_list_a(list_a);
-		printf("-------\nb\n");
-		print_list_a(list_b);
+		while (monitor_a->bottom->index == (*list_a)->index - 1
+			&& max_block_num_b(list_b) == block_num - 1)
+			ft_print_rra_extra(list_a, monitor_a);
 	}
 }
 

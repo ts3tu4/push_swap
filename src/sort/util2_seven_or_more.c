@@ -38,7 +38,14 @@ int	is_min_index_in_block(t_node **list_b, int block_num, int c_index)
 	int		min_index;
 
 	tmp = *list_b;
-	min_index = tmp->index;
+	if (tmp->block == block_num)
+		min_index = tmp->index;
+	else
+	{
+		while (tmp->block != block_num)
+			tmp = tmp->next;
+		min_index = tmp->index;
+	}
 	tmp = tmp->next;
 	while (tmp != NULL)
 	{
