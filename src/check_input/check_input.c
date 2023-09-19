@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/22 16:01:36 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/19 17:10:32 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ long int	is_over_intmax(char *argv)
 		argv ++;
 	}
 	if (!ft_isdigit (*argv))
-		return (1);
-	while (*argv && ft_isdigit(*argv))
 	{
+		return (1);
+	}
+	while (*argv && ft_isdigit(*argv))
+	{	
 		ans = ans * 10 + *argv++ - '0';
 		if (ans * pm > INT_MAX || ans * pm < INT_MIN)
 			return (1);
@@ -80,6 +82,7 @@ char	**split_all_args(int *argc, char **argv)
 	while (i < *argc)
 	{
 		tmp = ft_split(argv[i], ' ');
+		arg_check(tmp);
 		j = 0;
 		while (tmp[j] != NULL)
 		{
@@ -130,7 +133,7 @@ int	*check_input_return_cc(int *argc, char **argv)
 	while (len < *argc)
 	{
 		if (is_over_intmax(splited_argv[len]) == 1)
-			put_error(1);
+			put_error();
 		c2i[len] = char_to_int(splited_argv[len]);
 		len++;
 	}

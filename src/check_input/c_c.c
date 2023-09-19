@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:09:47 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/17 20:35:51 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/19 17:11:16 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_duplicate(int *c2i, int len)
 		while (j < len)
 		{
 			if (c2i[i] == c2i[j])
-				put_error(1);
+				put_error();
 			j++;
 		}
 		i++;

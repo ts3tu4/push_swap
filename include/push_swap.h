@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:11:23 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/17 20:40:52 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/19 17:13:59 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,12 @@ int			*bubble_sort(int *sorted_intager, int len);
 void		swap_int(int *n, int *m);
 void		ft_is_sorted(int *cc, int size);
 // error/free
-void		put_error(int a);
+void		put_error(void);
 void		ft_int_free(int *a);
 void		all_free(char **c);
 void		free_list(t_node **list);
 void		step_by_step_free(char **c, size_t i);
+void		arg_check(char **tmp);
 // make list
 t_node		*newlist(int cc);
 t_node		**ft_makelist(void);
@@ -112,6 +113,6 @@ void		ft_print_rb_extra(t_node **list_b, t_monitor *monitor_b);
 void		ft_print_sa_extra(t_node **list_a, t_monitor *monitor_a);
 void		ft_print_sb_extra(t_node **list_b, t_monitor *monitor_b);
 // test
-void		print_list_a(t_node **list_a);
-void		print_monitoringlist(t_monitor *monitor_a);
+// void		print_list_a(t_node **list_a);
+// void		print_monitoringlist(t_monitor *monitor_a);
 #endif
