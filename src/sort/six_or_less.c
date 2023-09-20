@@ -13,6 +13,27 @@
 #include "push_swap.h"
 #include "libft.h"
 
+int	find_min_in_top(t_node **list_a)
+{
+	int		mid_num;
+	int		min_num;
+	t_node	*tmp;
+	int		i;
+
+	tmp = *list_a;
+	i = 0;
+	min_num = get_min_index(list_a, 0);
+	mid_num = get_mid_index(list_a, 0);
+	while (tmp->index != min_num)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	if (i > mid_num)
+		return (1);
+	return (0);
+}
+
 void	move_min_to_b(t_node **list_a, t_node **list_b)
 {
 	int	min_index;
@@ -20,8 +41,12 @@ void	move_min_to_b(t_node **list_a, t_node **list_b)
 	if (!list_a || !(*list_a))
 		return ;
 	min_index = get_min_index(list_a, 0);
-	while ((*list_a) && ((*list_a)->index != min_index))
-		ft_print_ra(list_a);
+	if (!find_min_in_top(list_a))
+		while ((*list_a) && ((*list_a)->index != min_index))
+			ft_print_ra(list_a);
+	else
+		while ((*list_a) && ((*list_a)->index != min_index))
+			ft_print_rra(list_a);
 	if (list_a && *list_a)
 		ft_print_pb(list_a, list_b);
 }

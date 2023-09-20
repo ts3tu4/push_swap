@@ -27,9 +27,7 @@ long int	is_over_intmax(char *argv)
 		argv ++;
 	}
 	if (!ft_isdigit (*argv))
-	{
 		return (1);
-	}
 	while (*argv && ft_isdigit(*argv))
 	{	
 		ans = ans * 10 + *argv++ - '0';
