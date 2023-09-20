@@ -75,6 +75,7 @@ void		check_list_a_sort(t_node **list_a,
 int			is_index_not_sorted(t_node **list_a);
 t_node		return_from_b(t_node **list_a, t_node **list_b);
 void		move_min_to_b(t_node **list_a, t_node **list_b);
+int			find_min_in_top(t_node **list_a);
 int			get_min_index(t_node **list_a, int comp_num);
 int			get_max_index(t_node **list_a);
 int			get_mid_index(t_node **list_a, int comp_num);

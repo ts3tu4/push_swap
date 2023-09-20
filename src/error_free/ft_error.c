@@ -21,6 +21,6 @@ void	put_error(void)
 
 void	arg_check(char **tmp)
 {
-	if (!tmp || *tmp == '\0')
+	if (!tmp || !tmp[0] || **tmp == '\0')
 		put_error();
 }
