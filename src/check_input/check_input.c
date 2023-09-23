@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:38:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/19 17:10:32 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/23 17:10:42 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ long int	is_over_intmax(char *argv)
 		if (ans * pm > INT_MAX || ans * pm < INT_MIN)
 			return (1);
 	}
+	if (*argv && !ft_isdigit(*argv))
+		return (1);
 	return (0);
 }
 

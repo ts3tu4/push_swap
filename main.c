@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:32:57 by mnanke            #+#    #+#             */
-/*   Updated: 2023/09/19 17:13:21 by mnanke           ###   ########.fr       */
+/*   Updated: 2023/09/23 17:12:12 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// __attribute__((destructor)) static void destructor()
-// {
-// 	system("leaks -q push_swap");
-// }
+__attribute__((destructor)) static void destructor()
+{
+	system("leaks -q push_swap");
+}
 
 // void	print_list_a(t_node **list_a)
 // {
